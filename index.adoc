@@ -1,0 +1,134 @@
+:source-highlighter: pygments
+:toc: left
+:imagesdir: imagens
+:stem:
+
+= DCA0445 - Processamento digital de imagens - Resolução de Exercícios =
+
+Wesley Wagner Varela Souza <wesley.souza.016@ufrn.edu.br>
+
+== Introdução ==
+
+Este site destina-se a apresentar as soluções desenvolvidas para os exercícios propostos na disciplina de Processamento Digital de Imagens (PDI), ofertada no Departamento de Engenharia de Computação e Automação da UFRN e ministrado pelo professor Agostinho De Medeiros Brito Junior, cujo o material da disciplina de PDI se encontra disponível em <https://agostinhobritojr.github.io/tutorial/pdi/>.
+
+Os exercícios apresentados a seguir foram desenvolvidos em C++, utilizando a biblioteca OpenCV <https://opencv.org/>.
+
+:sectnums:
+
+== Manipulando pixels em uma imagem ==
+
+=== Exercício *_regions.cpp_* ===
+
+Usando o arquivo *_regions.cpp_* como referência, foi implementado um algorítmo que recebe uma imagem e inverte as cores de uma região definida pelas coordenadas de dois pontos *P1* e *P2*.
+O resultado do algorítmo pode ser visto abaixo.
+ 
+[source,cpp]
+.regions.cpp
+----
+include::programas/regions.cpp[]
+----
+
+[#img-regions]
+.Resultado da execução do programa regions.cpp 
+image::Anshu-A-Editado.jpg[Resultado]
+
+Imagem original disponível em: <https://unsplash.com/photos/foK2fD5dr70>
+
+=== Exercício *_trocaregioes.cpp_*
+
+Utilizando o programa *_pixels.cpp_* como referência, foi implementado um programa que troca as regiões de uma imagem fornecida.
+
+A implementação do algoritmo pode ser visualizado a seguir.
+
+[source,cpp]
+.trocaregioes.cpp
+----
+include::programas/trocaregioes.cpp[]
+----
+
+[#img-trocaregioes]
+.Resultado da execução do programa trocaregioes.cpp
+image::banco-imagens-gratis.png[Resultado]
+
+== Decomposição de imagens em planos de bits ==
+
+=== Em construção. ===
+
+== Preenchendo regiões
+
+=== Exercício *_labeling.cpp_* (1º Parte)
+
+Esse problema ocorre pois a representação da cor de cada pixel da imagem pode ser composta por 8 bits, e portanto, um total de 256 valores diferentes. Com isso, e considerando também que a representação numérica é do tipo inteira sem sinal (tipo _char_ por exemplo), não é possível atribuir um valor maior que 255 aos pixels da matriz, consequentemente comprometendo a contagem através do algoritmo de labeling (rotulagem).
+
+Para contornar esse problema, pode-se utilizar outros tipos de formatos numéricos para armazenar as informações referentes a rotulagem, e prosseguir com o processamento necessário das informações obtidas.
+
+=== Exercício *_labeling.cpp_* (2º Parte)
+
+A partir do labeling.cpp, o algorítmo de contagem foi aprimorado, levando em consideração objetos com mais de um buraco e excluindo as bolhas que tocam a borda da contagem. Abaixo podemos ver o código e o resultado de sua execução:
+
+[source,cpp]
+----
+include::programas/labeling.cpp[]
+----
+
+[#img-labeling]
+.Etapas da execução e resultado do programa labeling.cpp
+image::bolhas.png[Resultado]
+
+Considerando também bolhas que possuem multiplos furos.
+
+[#img-labeling2]
+.Execução do programa labeling considerando bolhas com multiplos furos
+image::maisbolhas.png[Resultado]
+
+== Manipulação de histogramas
+
+Essa seção abordou a manipulação de histogramas e a captura de videos no OpenCV.
+
+=== Exercício *_equalize.cpp_*
+
+Utilizando o programa *_histogram.cpp_* como referência, foi desenvolvido um código que realiza a equalização dos quadros provenientes de um stream de vídeo. A equalização do histograma ocorre nas 3 componentes de cores (_R,G,B_) da imagem. Abaixo, tem-se o código da implementação.
+
+[source,cpp]
+
+----
+include::programas/exec_histograma.cpp[]
+----
+
+O resultado da aplicação do algoritmo pode ser verificado abaixo.
+
+[#img-equalize1]
+.Imagem comparativa entre a saída equalizada e a imagem original
+image::eqHistograma.png[Resultado]
+
+[#vid-equalizeYT]
+.Equalização de histograma de um vídeo
+video::hBh9NrH5xI0[youtube, 640,480]
+
+Apesar da equalização evidenciar os detalhes do vídeo original, especialmente em momentos com pouco _"brilho"_, a visualização fica distorcida ao passar pelo processo de equalização, que provoca o distanciamento dos tons dos pixels, produzindo como resultado o efeito do falso contorno.
+
+=== Exercício *_motiondetector_* ===
+
+==== Em construção. ====
+
+== Filtragem no domínio espacial I ==
+
+=== Em construção. ===
+
+== Exercício *_laplgauss_* ==
+
+=== Em construção. ===
+
+== Filtragem no domínio espacial II ==
+
+=== Em construção. ===
+
+=== Exercicio *_tiltshift_* ===
+
+=== Em construção. ===
+
+=== Exercicio *_tiltshiftvideo_* ===
+
+=== Em construção. ===
+
+:!sectnums:
