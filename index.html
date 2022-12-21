@@ -537,12 +537,35 @@ pre.pygments .tok-il { color: #666666 } /* Literal.Number.Integer.Long */
 <li><a href="#_exercício_motiondetector">4.2. Exercício <strong><em>motiondetector</em></strong></a></li>
 </ul>
 </li>
-<li><a href="#_filtragem_no_domínio_espacial_i">5. Filtragem no domínio espacial I</a></li>
-<li><a href="#_exercício_laplgauss">6. Exercício <strong><em>laplgauss</em></strong></a></li>
-<li><a href="#_filtragem_no_domínio_espacial_ii">7. Filtragem no domínio espacial II</a>
+<li><a href="#_filtragem_no_domínio_espacial_i">5. Filtragem no domínio espacial I</a>
 <ul class="sectlevel2">
-<li><a href="#_exercicio_tiltshift">7.1. Exercicio <strong><em>tiltshift</em></strong></a></li>
-<li><a href="#_exercicio_tiltshiftvideo">7.2. Exercicio <strong><em>tiltshiftvideo</em></strong></a></li>
+<li><a href="#_exercício_laplgauss">5.1. Exercício <strong><em>laplgauss</em></strong></a></li>
+</ul>
+</li>
+<li><a href="#_filtragem_no_domínio_espacial_ii">6. Filtragem no domínio espacial II</a>
+<ul class="sectlevel2">
+<li><a href="#_exercicio_tiltshift">6.1. Exercicio <strong><em>tiltshift</em></strong></a></li>
+<li><a href="#_exercicio_tiltshiftvideo">6.2. Exercicio <strong><em>tiltshiftvideo</em></strong></a></li>
+</ul>
+</li>
+<li><a href="#_a_tranformada_discreta_de_fourier">7. A Tranformada Discreta de Fourier</a>
+<ul class="sectlevel2">
+<li><a href="#_em_construção_2">7.1. Em construção</a></li>
+</ul>
+</li>
+<li><a href="#_filtragem_no_domínio_da_frequência">8. Filtragem no Domínio da Frequência</a>
+<ul class="sectlevel2">
+<li><a href="#_exercício_filtro_homomórfico">8.1. Exercício Filtro homomórfico</a></li>
+</ul>
+</li>
+<li><a href="#_detecção_de_bordas_com_o_algoritmo_de_canny">9. Detecção de bordas com o algoritmo de Canny</a>
+<ul class="sectlevel2">
+<li><a href="#_exercício_pointilismo">9.1. Exercício Pointilismo</a></li>
+</ul>
+</li>
+<li><a href="#_quantização_vetorial_com_k_means">10. Quantização vetorial com k-means</a>
+<ul class="sectlevel2">
+<li><a href="#_exercicio_kmeans">10.1. Exercicio <strong><em>kmeans</em></strong></a></li>
 </ul>
 </li>
 </ul>
@@ -1596,11 +1619,8 @@ O resultado do algorítmo pode ser visto abaixo.</p>
 <div class="paragraph">
 <p>Nesta seção será utilizada a função filter2D para realizar a convolução digital entre uma imagem e uma máscara</p>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_exercício_laplgauss">6. Exercício <strong><em>laplgauss</em></strong></h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="_exercício_laplgauss">5.1. Exercício <strong><em>laplgauss</em></strong></h3>
 <div class="paragraph">
 <p>Usando o programa <strong><em>filtroespacial.cpp</em></strong> como referência, uma opção de aplicar o filtro laplaciano após aplicar um filtro gaussiano na imagem foi adicionado. A letra de seleção para aplicar este filtro é a <strong>X</strong>. A ativação da utilização sequencial do filtro <em>laplgauss</em> é feita alterando uma variável do tipo <em>bool</em>, atribuindo-se o valor <em>true</em> após pressionada a tecla <strong>X</strong>. Se qualquer outra opção de filtro for selecionada, ocorre uma atribuição <em>false</em> nesta variavel, e consequentemente, aplicando apenas o filtro selecionado.</p>
 </div>
@@ -1796,14 +1816,15 @@ O resultado do algorítmo pode ser visto abaixo.</p>
 </div>
 </div>
 </div>
+</div>
 <div class="sect1">
-<h2 id="_filtragem_no_domínio_espacial_ii">7. Filtragem no domínio espacial II</h2>
+<h2 id="_filtragem_no_domínio_espacial_ii">6. Filtragem no domínio espacial II</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Nesta seção será apresentada a experiÊncia do efeito tilt-shift usando técnicas de processamento digital de imagens.</p>
+<p>Nesta seção será apresentada a experiência do efeito tilt-shift usando técnicas de processamento digital de imagens.</p>
 </div>
 <div class="sect2">
-<h3 id="_exercicio_tiltshift">7.1. Exercicio <strong><em>tiltshift</em></strong></h3>
+<h3 id="_exercicio_tiltshift">6.1. Exercicio <strong><em>tiltshift</em></strong></h3>
 <div class="paragraph">
 <p>Usando o programa <strong><em>addweighted.cpp</em></strong> como referência, foi implmementado um programa para a realizar o tilt-shift em uma imagem colorida.</p>
 </div>
@@ -1985,7 +2006,7 @@ O resultado do algorítmo pode ser visto abaixo.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_exercicio_tiltshiftvideo">7.2. Exercicio <strong><em>tiltshiftvideo</em></strong></h3>
+<h3 id="_exercicio_tiltshiftvideo">6.2. Exercicio <strong><em>tiltshiftvideo</em></strong></h3>
 <div class="paragraph">
 <p>Utilizando o programa <strong><em>tiltshift.cpp</em></strong> como referência, foi desenvolvido um código que realiza a aplicação da técnica de tiltshift em um vídeo. O programa recebe um streaming de vídeo utilizando o recurso de câmera virtual do software <em>Obs Studio</em>, e assim como no programa anterior, utiliza-se as <em>trackbars</em> para ajustar o comportamento desejado para o <em>tiltshift</em>. Ao finalizar o ajuste, pressiona-se a tecla <strong><em>"R"</em></strong> para iniciar a gravação do vídeo. A gravação é encerrada ao fechar a execução do programa. Além do efeito <em>tiltshift</em>, foi implementado o efeito <em>stopmotion</em>, de maneira sistemática considerando o descarte de 2 frames e a coleta do terceiro da sequência. Abaixo, tem-se o código da implementação e um vídeo demonstrativo da execução da aplicação.</p>
 </div>
@@ -2216,10 +2237,581 @@ O resultado do algorítmo pode ser visto abaixo.</p>
 </div>
 </div>
 </div>
+<div class="sect1">
+<h2 id="_a_tranformada_discreta_de_fourier">7. A Tranformada Discreta de Fourier</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_em_construção_2">7.1. Em construção</h3>
+
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_filtragem_no_domínio_da_frequência">8. Filtragem no Domínio da Frequência</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Nesta seção será apresentada a experiência da aplicação do filtro homomórfico em uma cena em tons de cinza mal iluminada.</p>
+</div>
+<div class="sect2">
+<h3 id="_exercício_filtro_homomórfico">8.1. Exercício Filtro homomórfico</h3>
+<div class="paragraph">
+<p>Uma das condições para realizar a FFT é que a matriz que representa a imagem de possuir uma altura e largura em potência na base 2. Portanto, inicialmente realiza a adequação do tamanho da matriz, incluindo nos espaços adicionados o valor zero (zero padding). Posteriormente, efetua-se a operação de log nas componentes da imagem, ou seja, na parte real e complexa, com a devida cautela de somar 1 ao valor de magnitude para evitar situações com log(x=0).</p>
+</div>
+<div class="paragraph">
+<p>Neste ponto, a transformada de Fourier é aplicada, com o devido deslocamento do espectro em movimentações diagonais. Por fim, a multiplicação ponto a ponto, responsável pela aplicação do filtro é desempenhada.</p>
+</div>
+<div class="paragraph">
+<p>Finalmente, toma-se a transformada inversa, efetua-se a exponenciação (operação inversa a operação logaritmica efetuada anteriormente), e posteriormente realiza-se uma normalização para exibir a imagem filtrada.</p>
+</div>
+<div class="paragraph">
+<p>Nesta implementação a variação dos parâmetros é efetuada através de <em>"trackbars"</em>.</p>
+</div>
+<div class="paragraph">
+<p>Abaixo, tem-se o código da implementação e uma imagem da execução da aplicação.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="cpp"><span></span><span class="tok-cp">#include</span><span class="tok-w"> </span><span class="tok-cpf">&lt;iostream&gt;</span><span class="tok-cp"></span>
+<span class="tok-cp">#include</span><span class="tok-w"> </span><span class="tok-cpf">&lt;cmath&gt;</span><span class="tok-cp"></span>
+<span class="tok-cp">#include</span><span class="tok-w"> </span><span class="tok-cpf">&lt;opencv2/opencv.hpp&gt;</span><span class="tok-cp"></span>
+<span class="tok-cp">#include</span><span class="tok-w"> </span><span class="tok-cpf">&lt;opencv2/core.hpp&gt;</span><span class="tok-cp"></span>
+<span class="tok-cp">#include</span><span class="tok-w"> </span><span class="tok-cpf">&lt;opencv2/imgproc/imgproc.hpp&gt;</span><span class="tok-cp"></span>
+
+<span class="tok-k">using</span><span class="tok-w"> </span><span class="tok-k">namespace</span><span class="tok-w"> </span><span class="tok-nn">cv</span><span class="tok-p">;</span><span class="tok-w"></span>
+<span class="tok-k">using</span><span class="tok-w"> </span><span class="tok-k">namespace</span><span class="tok-w"> </span><span class="tok-nn">std</span><span class="tok-p">;</span><span class="tok-w"></span>
+
+<span class="tok-kt">int</span><span class="tok-w"> </span><span class="tok-n">slider_gH</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-mi">8</span><span class="tok-p">;</span><span class="tok-w"></span>
+<span class="tok-k">const</span><span class="tok-w"> </span><span class="tok-kt">int</span><span class="tok-w"> </span><span class="tok-n">gH_max</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-mi">100</span><span class="tok-p">;</span><span class="tok-w"></span>
+<span class="tok-kt">float</span><span class="tok-w"> </span><span class="tok-n">gH</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-n">slider_gH</span><span class="tok-o">/</span><span class="tok-mf">10.00</span><span class="tok-p">;</span><span class="tok-w"></span>
+
+<span class="tok-kt">int</span><span class="tok-w"> </span><span class="tok-n">slider_gL</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-mi">6</span><span class="tok-p">;</span><span class="tok-w"></span>
+<span class="tok-k">const</span><span class="tok-w"> </span><span class="tok-kt">int</span><span class="tok-w"> </span><span class="tok-n">gL_max</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-mi">100</span><span class="tok-p">;</span><span class="tok-w"></span>
+<span class="tok-kt">float</span><span class="tok-w"> </span><span class="tok-n">gL</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-n">slider_gL</span><span class="tok-o">/</span><span class="tok-mf">10.00</span><span class="tok-p">;</span><span class="tok-w"></span>
+
+<span class="tok-kt">int</span><span class="tok-w"> </span><span class="tok-n">slider_c</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-mi">10</span><span class="tok-p">;</span><span class="tok-w"></span>
+<span class="tok-k">const</span><span class="tok-w"> </span><span class="tok-kt">int</span><span class="tok-w"> </span><span class="tok-n">c_max</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-mi">100</span><span class="tok-p">;</span><span class="tok-w"></span>
+<span class="tok-kt">float</span><span class="tok-w"> </span><span class="tok-n">c</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-n">slider_c</span><span class="tok-o">/</span><span class="tok-mf">10.00</span><span class="tok-p">;</span><span class="tok-w"></span>
+
+<span class="tok-kt">int</span><span class="tok-w"> </span><span class="tok-n">slider_d0</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-mi">15</span><span class="tok-p">;</span><span class="tok-w"></span>
+<span class="tok-k">const</span><span class="tok-w"> </span><span class="tok-kt">int</span><span class="tok-w"> </span><span class="tok-n">d0_max</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-mi">15</span><span class="tok-p">;</span><span class="tok-w"></span>
+<span class="tok-kt">float</span><span class="tok-w"> </span><span class="tok-n">d0</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-n">slider_d0</span><span class="tok-o">/</span><span class="tok-mf">1.00</span><span class="tok-p">;</span><span class="tok-w"></span>
+
+<span class="tok-kt">int</span><span class="tok-w"> </span><span class="tok-n">altura</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">largura</span><span class="tok-p">;</span><span class="tok-w"></span>
+<span class="tok-kt">char</span><span class="tok-w"> </span><span class="tok-n">TrackbarName</span><span class="tok-p">[</span><span class="tok-mi">50</span><span class="tok-p">];</span><span class="tok-w"></span>
+
+<span class="tok-kt">void</span><span class="tok-w"> </span><span class="tok-nf">homomorfico</span><span class="tok-p">();</span><span class="tok-w"></span>
+
+<span class="tok-kt">void</span><span class="tok-w"> </span><span class="tok-nf">on_trackbar_gH</span><span class="tok-p">(</span><span class="tok-kt">int</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-kt">void</span><span class="tok-w"> </span><span class="tok-o">*</span><span class="tok-p">)</span><span class="tok-w"></span>
+<span class="tok-p">{</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-n">gH</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-n">slider_gH</span><span class="tok-o">/</span><span class="tok-mf">10.00</span><span class="tok-p">;</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-n">homomorfico</span><span class="tok-p">();</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-c1">// Atualizar valor trackbar</span>
+<span class="tok-p">}</span><span class="tok-w"></span>
+
+<span class="tok-kt">void</span><span class="tok-w"> </span><span class="tok-nf">on_trackbar_gL</span><span class="tok-p">(</span><span class="tok-kt">int</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-kt">void</span><span class="tok-w"> </span><span class="tok-o">*</span><span class="tok-p">)</span><span class="tok-w"></span>
+<span class="tok-p">{</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-n">gL</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-n">slider_gL</span><span class="tok-o">/</span><span class="tok-mf">10.00</span><span class="tok-p">;</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-n">homomorfico</span><span class="tok-p">();</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-c1">// Atualizar valor trackbar</span>
+<span class="tok-p">}</span><span class="tok-w"></span>
+
+<span class="tok-kt">void</span><span class="tok-w"> </span><span class="tok-nf">on_trackbar_c</span><span class="tok-p">(</span><span class="tok-kt">int</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-kt">void</span><span class="tok-w"> </span><span class="tok-o">*</span><span class="tok-p">)</span><span class="tok-w"></span>
+<span class="tok-p">{</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-n">c</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-n">slider_c</span><span class="tok-o">/</span><span class="tok-mf">10.00</span><span class="tok-p">;</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-n">homomorfico</span><span class="tok-p">();</span><span class="tok-w"></span>
+
+<span class="tok-w">    </span><span class="tok-c1">// Atualizar valor trackbar</span>
+<span class="tok-p">}</span><span class="tok-w"></span>
+
+<span class="tok-kt">void</span><span class="tok-w"> </span><span class="tok-nf">on_trackbar_d0</span><span class="tok-p">(</span><span class="tok-kt">int</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-kt">void</span><span class="tok-w"> </span><span class="tok-o">*</span><span class="tok-p">)</span><span class="tok-w"></span>
+<span class="tok-p">{</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-n">d0</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-n">slider_d0</span><span class="tok-o">/</span><span class="tok-mf">1.00</span><span class="tok-p">;</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-n">homomorfico</span><span class="tok-p">();</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-c1">// Atualizar valor trackbar</span>
+<span class="tok-p">}</span><span class="tok-w"></span>
+
+<span class="tok-c1">// troca os quadrantes da imagem da DFT</span>
+<span class="tok-kt">void</span><span class="tok-w"> </span><span class="tok-nf">makeFilter</span><span class="tok-p">();</span><span class="tok-w"></span>
+<span class="tok-kt">void</span><span class="tok-w"> </span><span class="tok-nf">makeImgFinal</span><span class="tok-p">();</span><span class="tok-w"></span>
+
+<span class="tok-kt">void</span><span class="tok-w"> </span><span class="tok-nf">deslocaDFT</span><span class="tok-p">(</span><span class="tok-n">Mat</span><span class="tok-w"> </span><span class="tok-o">&amp;</span><span class="tok-n">image</span><span class="tok-p">)</span><span class="tok-w"></span>
+<span class="tok-p">{</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-n">Mat</span><span class="tok-w"> </span><span class="tok-n">tmp</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">A</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">B</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">C</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">D</span><span class="tok-p">;</span><span class="tok-w"></span>
+
+<span class="tok-w">    </span><span class="tok-c1">// se a imagem tiver tamanho impar, recorta a regiao para</span>
+<span class="tok-w">    </span><span class="tok-c1">// evitar cópias de tamanho desigual</span>
+<span class="tok-w">    </span><span class="tok-n">image</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-n">image</span><span class="tok-p">(</span><span class="tok-n">Rect</span><span class="tok-p">(</span><span class="tok-mi">0</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-mi">0</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">image</span><span class="tok-p">.</span><span class="tok-n">cols</span><span class="tok-w"> </span><span class="tok-o">&amp;</span><span class="tok-w"> </span><span class="tok-mi">-2</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">image</span><span class="tok-p">.</span><span class="tok-n">rows</span><span class="tok-w"> </span><span class="tok-o">&amp;</span><span class="tok-w"> </span><span class="tok-mi">-2</span><span class="tok-p">));</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-kt">int</span><span class="tok-w"> </span><span class="tok-n">cx</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-n">image</span><span class="tok-p">.</span><span class="tok-n">cols</span><span class="tok-w"> </span><span class="tok-o">/</span><span class="tok-w"> </span><span class="tok-mi">2</span><span class="tok-p">;</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-kt">int</span><span class="tok-w"> </span><span class="tok-n">cy</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-n">image</span><span class="tok-p">.</span><span class="tok-n">rows</span><span class="tok-w"> </span><span class="tok-o">/</span><span class="tok-w"> </span><span class="tok-mi">2</span><span class="tok-p">;</span><span class="tok-w"></span>
+
+<span class="tok-w">    </span><span class="tok-c1">// reorganiza os quadrantes da transformada</span>
+<span class="tok-w">    </span><span class="tok-c1">// A B   -&gt;  D C</span>
+<span class="tok-w">    </span><span class="tok-c1">// C D       B A</span>
+<span class="tok-w">    </span><span class="tok-n">A</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-n">image</span><span class="tok-p">(</span><span class="tok-n">Rect</span><span class="tok-p">(</span><span class="tok-mi">0</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-mi">0</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">cx</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">cy</span><span class="tok-p">));</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-n">B</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-n">image</span><span class="tok-p">(</span><span class="tok-n">Rect</span><span class="tok-p">(</span><span class="tok-n">cx</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-mi">0</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">cx</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">cy</span><span class="tok-p">));</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-n">C</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-n">image</span><span class="tok-p">(</span><span class="tok-n">Rect</span><span class="tok-p">(</span><span class="tok-mi">0</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">cy</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">cx</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">cy</span><span class="tok-p">));</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-n">D</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-n">image</span><span class="tok-p">(</span><span class="tok-n">Rect</span><span class="tok-p">(</span><span class="tok-n">cx</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">cy</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">cx</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">cy</span><span class="tok-p">));</span><span class="tok-w"></span>
+
+<span class="tok-w">    </span><span class="tok-c1">// A &lt;-&gt; D</span>
+<span class="tok-w">    </span><span class="tok-n">A</span><span class="tok-p">.</span><span class="tok-n">copyTo</span><span class="tok-p">(</span><span class="tok-n">tmp</span><span class="tok-p">);</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-n">D</span><span class="tok-p">.</span><span class="tok-n">copyTo</span><span class="tok-p">(</span><span class="tok-n">A</span><span class="tok-p">);</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-n">tmp</span><span class="tok-p">.</span><span class="tok-n">copyTo</span><span class="tok-p">(</span><span class="tok-n">D</span><span class="tok-p">);</span><span class="tok-w"></span>
+
+<span class="tok-w">    </span><span class="tok-c1">// C &lt;-&gt; B</span>
+<span class="tok-w">    </span><span class="tok-n">C</span><span class="tok-p">.</span><span class="tok-n">copyTo</span><span class="tok-p">(</span><span class="tok-n">tmp</span><span class="tok-p">);</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-n">B</span><span class="tok-p">.</span><span class="tok-n">copyTo</span><span class="tok-p">(</span><span class="tok-n">C</span><span class="tok-p">);</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-n">tmp</span><span class="tok-p">.</span><span class="tok-n">copyTo</span><span class="tok-p">(</span><span class="tok-n">B</span><span class="tok-p">);</span><span class="tok-w"></span>
+<span class="tok-p">}</span><span class="tok-w"></span>
+
+<span class="tok-n">Mat</span><span class="tok-w"> </span><span class="tok-n">imaginaryInput</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">complexImage</span><span class="tok-p">;</span><span class="tok-w"></span>
+<span class="tok-n">Mat</span><span class="tok-w"> </span><span class="tok-n">padded</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">filter</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">filter_print</span><span class="tok-p">;</span><span class="tok-w"></span>
+<span class="tok-n">Mat</span><span class="tok-w"> </span><span class="tok-n">image</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">tmp</span><span class="tok-p">,</span><span class="tok-n">output</span><span class="tok-p">;</span><span class="tok-w"></span>
+<span class="tok-n">Mat_</span><span class="tok-o">&lt;</span><span class="tok-kt">float</span><span class="tok-o">&gt;</span><span class="tok-w"> </span><span class="tok-n">zeros</span><span class="tok-p">;</span><span class="tok-w"></span>
+<span class="tok-n">vector</span><span class="tok-o">&lt;</span><span class="tok-n">Mat</span><span class="tok-o">&gt;</span><span class="tok-w"> </span><span class="tok-n">planos</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">filtros</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">dfts</span><span class="tok-p">;</span><span class="tok-w"></span>
+<span class="tok-kt">int</span><span class="tok-w"> </span><span class="tok-n">dft_M</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">dft_N</span><span class="tok-p">;</span><span class="tok-w"></span>
+
+<span class="tok-kt">int</span><span class="tok-w"> </span><span class="tok-nf">main</span><span class="tok-p">(</span><span class="tok-kt">int</span><span class="tok-w"> </span><span class="tok-n">argc</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-kt">char</span><span class="tok-w"> </span><span class="tok-o">**</span><span class="tok-n">argv</span><span class="tok-p">)</span><span class="tok-w"></span>
+<span class="tok-p">{</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-n">image</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-n">imread</span><span class="tok-p">(</span><span class="tok-n">argv</span><span class="tok-p">[</span><span class="tok-mi">1</span><span class="tok-p">],</span><span class="tok-w"> </span><span class="tok-n">cv</span><span class="tok-o">::</span><span class="tok-n">IMREAD_GRAYSCALE</span><span class="tok-p">);</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-n">imshow</span><span class="tok-p">(</span><span class="tok-s">&quot;imagem_original&quot;</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">image</span><span class="tok-p">);</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-c1">// waitKey();</span>
+
+<span class="tok-w">    </span><span class="tok-c1">// identifica os tamanhos otimos para</span>
+<span class="tok-w">    </span><span class="tok-c1">// calculo do FFT</span>
+<span class="tok-w">    </span><span class="tok-n">dft_M</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-n">getOptimalDFTSize</span><span class="tok-p">(</span><span class="tok-n">image</span><span class="tok-p">.</span><span class="tok-n">rows</span><span class="tok-p">);</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-n">dft_N</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-n">getOptimalDFTSize</span><span class="tok-p">(</span><span class="tok-n">image</span><span class="tok-p">.</span><span class="tok-n">cols</span><span class="tok-p">);</span><span class="tok-w"></span>
+
+<span class="tok-w">    </span><span class="tok-c1">// realiza o padding da imagem</span>
+<span class="tok-w">    </span>
+
+<span class="tok-w">    </span><span class="tok-c1">// prepara a matriz complexa e preenche com 0</span>
+
+<span class="tok-w">    </span><span class="tok-c1">// Construir imagem do filtro homomorfico</span>
+<span class="tok-w">    </span>
+<span class="tok-w">    </span><span class="tok-n">makeFilter</span><span class="tok-p">();</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-n">waitKey</span><span class="tok-p">();</span><span class="tok-w"></span>
+
+<span class="tok-w">    </span><span class="tok-c1">// Realizar a filtragem</span>
+
+<span class="tok-w">    </span><span class="tok-n">cv</span><span class="tok-o">::</span><span class="tok-n">namedWindow</span><span class="tok-p">(</span><span class="tok-s">&quot;imagem_final&quot;</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">cv</span><span class="tok-o">::</span><span class="tok-n">WINDOW_NORMAL</span><span class="tok-p">);</span><span class="tok-w"></span>
+
+<span class="tok-w">    </span><span class="tok-n">sprintf</span><span class="tok-p">(</span><span class="tok-n">TrackbarName</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-s">&quot;gH %d&quot;</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">gH_max</span><span class="tok-p">);</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-n">createTrackbar</span><span class="tok-p">(</span><span class="tok-n">TrackbarName</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-s">&quot;imagem_final&quot;</span><span class="tok-p">,</span><span class="tok-w"></span>
+<span class="tok-w">                   </span><span class="tok-o">&amp;</span><span class="tok-n">slider_gH</span><span class="tok-p">,</span><span class="tok-w"></span>
+<span class="tok-w">                   </span><span class="tok-n">gH_max</span><span class="tok-p">,</span><span class="tok-w"></span>
+<span class="tok-w">                   </span><span class="tok-n">on_trackbar_gH</span><span class="tok-p">);</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-n">on_trackbar_gH</span><span class="tok-p">(</span><span class="tok-n">slider_gH</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-mi">0</span><span class="tok-p">);</span><span class="tok-w"></span>
+
+<span class="tok-w">    </span><span class="tok-n">sprintf</span><span class="tok-p">(</span><span class="tok-n">TrackbarName</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-s">&quot;gL %d&quot;</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">gL_max</span><span class="tok-p">);</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-n">createTrackbar</span><span class="tok-p">(</span><span class="tok-n">TrackbarName</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-s">&quot;imagem_final&quot;</span><span class="tok-p">,</span><span class="tok-w"></span>
+<span class="tok-w">                   </span><span class="tok-o">&amp;</span><span class="tok-n">slider_gL</span><span class="tok-p">,</span><span class="tok-w"></span>
+<span class="tok-w">                   </span><span class="tok-n">gL_max</span><span class="tok-p">,</span><span class="tok-w"></span>
+<span class="tok-w">                   </span><span class="tok-n">on_trackbar_gL</span><span class="tok-p">);</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-n">on_trackbar_gL</span><span class="tok-p">(</span><span class="tok-n">slider_gL</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-mi">0</span><span class="tok-p">);</span><span class="tok-w"></span>
+
+<span class="tok-w">    </span><span class="tok-n">sprintf</span><span class="tok-p">(</span><span class="tok-n">TrackbarName</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-s">&quot;c %d&quot;</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">c_max</span><span class="tok-p">);</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-n">createTrackbar</span><span class="tok-p">(</span><span class="tok-n">TrackbarName</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-s">&quot;imagem_final&quot;</span><span class="tok-p">,</span><span class="tok-w"></span>
+<span class="tok-w">                   </span><span class="tok-o">&amp;</span><span class="tok-n">slider_c</span><span class="tok-p">,</span><span class="tok-w"></span>
+<span class="tok-w">                   </span><span class="tok-n">c_max</span><span class="tok-p">,</span><span class="tok-w"></span>
+<span class="tok-w">                   </span><span class="tok-n">on_trackbar_c</span><span class="tok-p">);</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-n">on_trackbar_c</span><span class="tok-p">(</span><span class="tok-n">slider_c</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-mi">0</span><span class="tok-p">);</span><span class="tok-w"></span>
+
+<span class="tok-w">    </span><span class="tok-n">sprintf</span><span class="tok-p">(</span><span class="tok-n">TrackbarName</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-s">&quot;d0 %d&quot;</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">d0_max</span><span class="tok-p">);</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-n">createTrackbar</span><span class="tok-p">(</span><span class="tok-n">TrackbarName</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-s">&quot;imagem_final&quot;</span><span class="tok-p">,</span><span class="tok-w"></span>
+<span class="tok-w">                   </span><span class="tok-o">&amp;</span><span class="tok-n">slider_d0</span><span class="tok-p">,</span><span class="tok-w"></span>
+<span class="tok-w">                   </span><span class="tok-n">d0_max</span><span class="tok-p">,</span><span class="tok-w"></span>
+<span class="tok-w">                   </span><span class="tok-n">on_trackbar_d0</span><span class="tok-p">);</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-n">on_trackbar_d0</span><span class="tok-p">(</span><span class="tok-n">slider_d0</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-mi">0</span><span class="tok-p">);</span><span class="tok-w"></span>
+
+<span class="tok-w">    </span><span class="tok-n">homomorfico</span><span class="tok-p">();</span><span class="tok-w"></span>
+
+<span class="tok-w">    </span><span class="tok-kt">int</span><span class="tok-w"> </span><span class="tok-n">key</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-sc">&#39;0&#39;</span><span class="tok-p">;</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-k">for</span><span class="tok-w"> </span><span class="tok-p">(;;)</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-p">{</span><span class="tok-w"></span>
+<span class="tok-w">   </span><span class="tok-c1">//     imshow(&quot;imagem_final&quot;, tmp);</span>
+<span class="tok-w">        </span><span class="tok-n">key</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-n">cv</span><span class="tok-o">::</span><span class="tok-n">waitKey</span><span class="tok-p">(</span><span class="tok-mi">20</span><span class="tok-p">);</span><span class="tok-w"></span>
+<span class="tok-w">        </span><span class="tok-k">if</span><span class="tok-w"> </span><span class="tok-p">(</span><span class="tok-n">key</span><span class="tok-w"> </span><span class="tok-o">==</span><span class="tok-w"> </span><span class="tok-mi">27</span><span class="tok-p">)</span><span class="tok-w"> </span><span class="tok-c1">// ESC</span>
+<span class="tok-w">            </span><span class="tok-k">break</span><span class="tok-p">;</span><span class="tok-w"></span>
+<span class="tok-w">        </span><span class="tok-k">if</span><span class="tok-w"> </span><span class="tok-p">(</span><span class="tok-n">key</span><span class="tok-w"> </span><span class="tok-o">==</span><span class="tok-w"> </span><span class="tok-sc">&#39; &#39;</span><span class="tok-p">)</span><span class="tok-w"></span>
+<span class="tok-w">            </span><span class="tok-k">break</span><span class="tok-p">;</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-p">}</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-n">cv</span><span class="tok-o">::</span><span class="tok-n">normalize</span><span class="tok-p">(</span><span class="tok-n">output</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">output</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-mi">0</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-mi">255</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">cv</span><span class="tok-o">::</span><span class="tok-n">NORM_MINMAX</span><span class="tok-p">);</span><span class="tok-c1">//Converter float para unsigned</span>
+<span class="tok-w">    </span><span class="tok-n">cv</span><span class="tok-o">::</span><span class="tok-n">imwrite</span><span class="tok-p">(</span><span class="tok-s">&quot;homomorfico.png&quot;</span><span class="tok-p">,</span><span class="tok-n">output</span><span class="tok-p">);</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-n">image</span><span class="tok-p">.</span><span class="tok-n">release</span><span class="tok-p">();</span><span class="tok-w"></span>
+<span class="tok-c1">//     waitKey();</span>
+<span class="tok-w">    </span><span class="tok-k">return</span><span class="tok-w"> </span><span class="tok-mi">0</span><span class="tok-p">;</span><span class="tok-w"></span>
+<span class="tok-p">}</span><span class="tok-w"></span>
+
+<span class="tok-kt">void</span><span class="tok-w"> </span><span class="tok-nf">homomorfico</span><span class="tok-p">(){</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-n">cout</span><span class="tok-o">&lt;&lt;</span><span class="tok-s">&quot;</span><span class="tok-se">\n\t</span><span class="tok-s">VALOR gH: &quot;</span><span class="tok-o">&lt;&lt;</span><span class="tok-n">gH</span><span class="tok-o">&lt;&lt;</span><span class="tok-s">&quot;</span><span class="tok-se">\t</span><span class="tok-s">Valor gL:&quot;</span><span class="tok-w"> </span><span class="tok-o">&lt;&lt;</span><span class="tok-n">gL</span><span class="tok-o">&lt;&lt;</span><span class="tok-s">&quot;</span><span class="tok-se">\t</span><span class="tok-s">Valor c: &quot;</span><span class="tok-o">&lt;&lt;</span><span class="tok-n">c</span><span class="tok-o">&lt;&lt;</span><span class="tok-s">&quot;</span><span class="tok-se">\t</span><span class="tok-s">Valor d0:&quot;</span><span class="tok-o">&lt;&lt;</span><span class="tok-n">d0</span><span class="tok-o">&lt;&lt;</span><span class="tok-s">&quot;</span><span class="tok-se">\n</span><span class="tok-s">&quot;</span><span class="tok-p">;</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-n">makeFilter</span><span class="tok-p">();</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-n">makeImgFinal</span><span class="tok-p">();</span><span class="tok-w"></span>
+<span class="tok-p">}</span><span class="tok-w"></span>
+
+<span class="tok-kt">void</span><span class="tok-w"> </span><span class="tok-nf">makeFilter</span><span class="tok-p">(){</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-n">copyMakeBorder</span><span class="tok-p">(</span><span class="tok-n">image</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">padded</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-mi">0</span><span class="tok-p">,</span><span class="tok-w"></span>
+<span class="tok-w">                   </span><span class="tok-n">dft_M</span><span class="tok-w"> </span><span class="tok-o">-</span><span class="tok-w"> </span><span class="tok-n">image</span><span class="tok-p">.</span><span class="tok-n">rows</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-mi">0</span><span class="tok-p">,</span><span class="tok-w"></span>
+<span class="tok-w">                   </span><span class="tok-n">dft_N</span><span class="tok-w"> </span><span class="tok-o">-</span><span class="tok-w"> </span><span class="tok-n">image</span><span class="tok-p">.</span><span class="tok-n">cols</span><span class="tok-p">,</span><span class="tok-w"></span>
+<span class="tok-w">                   </span><span class="tok-n">BORDER_CONSTANT</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">Scalar</span><span class="tok-o">::</span><span class="tok-n">all</span><span class="tok-p">(</span><span class="tok-mi">0</span><span class="tok-p">));</span><span class="tok-w"></span>
+
+<span class="tok-w">    </span><span class="tok-n">imaginaryInput</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-n">Mat</span><span class="tok-p">(</span><span class="tok-n">padded</span><span class="tok-p">.</span><span class="tok-n">size</span><span class="tok-p">(),</span><span class="tok-w"> </span><span class="tok-n">CV_32FC1</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">Scalar</span><span class="tok-p">(</span><span class="tok-mi">0</span><span class="tok-p">));</span><span class="tok-w"></span>
+
+<span class="tok-w">    </span><span class="tok-c1">// Trasforma padded em float</span>
+<span class="tok-w">    </span><span class="tok-n">padded</span><span class="tok-p">.</span><span class="tok-n">convertTo</span><span class="tok-p">(</span><span class="tok-n">padded</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">CV_32F</span><span class="tok-p">);</span><span class="tok-w"></span>
+
+<span class="tok-w">    </span><span class="tok-n">normalize</span><span class="tok-p">(</span><span class="tok-n">padded</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">padded</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-mf">0.0</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-mf">1.0</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">cv</span><span class="tok-o">::</span><span class="tok-n">NORM_MINMAX</span><span class="tok-p">);</span><span class="tok-w"></span>
+
+<span class="tok-w">    </span><span class="tok-k">while</span><span class="tok-p">(</span><span class="tok-o">!</span><span class="tok-n">planos</span><span class="tok-p">.</span><span class="tok-n">empty</span><span class="tok-p">())</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-p">{</span><span class="tok-w"></span>
+<span class="tok-w">        </span><span class="tok-n">planos</span><span class="tok-p">.</span><span class="tok-n">pop_back</span><span class="tok-p">();</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-p">}</span><span class="tok-w"></span>
+
+<span class="tok-w">    </span><span class="tok-k">while</span><span class="tok-p">(</span><span class="tok-o">!</span><span class="tok-n">complexImage</span><span class="tok-p">.</span><span class="tok-n">empty</span><span class="tok-p">())</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-p">{</span><span class="tok-w"></span>
+<span class="tok-w">        </span><span class="tok-n">complexImage</span><span class="tok-p">.</span><span class="tok-n">pop_back</span><span class="tok-p">();</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-p">}</span><span class="tok-w"></span>
+
+<span class="tok-w">    </span><span class="tok-n">planos</span><span class="tok-p">.</span><span class="tok-n">push_back</span><span class="tok-p">(</span><span class="tok-n">padded</span><span class="tok-p">);</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-n">planos</span><span class="tok-p">.</span><span class="tok-n">push_back</span><span class="tok-p">(</span><span class="tok-n">imaginaryInput</span><span class="tok-p">);</span><span class="tok-w"></span>
+
+<span class="tok-w">    </span><span class="tok-c1">// Soma ambas as componentes com 1 para evitar a operação ln(0)</span>
+<span class="tok-w">    </span><span class="tok-n">cv</span><span class="tok-o">::</span><span class="tok-n">log</span><span class="tok-p">(</span><span class="tok-n">padded</span><span class="tok-w"> </span><span class="tok-o">+</span><span class="tok-w"> </span><span class="tok-mi">1</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">padded</span><span class="tok-p">);</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-n">cv</span><span class="tok-o">::</span><span class="tok-n">log</span><span class="tok-p">(</span><span class="tok-n">imaginaryInput</span><span class="tok-w"> </span><span class="tok-o">+</span><span class="tok-w"> </span><span class="tok-mi">1</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">imaginaryInput</span><span class="tok-p">);</span><span class="tok-w"></span>
+
+<span class="tok-w">    </span><span class="tok-c1">// Concatena plano real e imaginário para realizar a DFT</span>
+<span class="tok-w">    </span>
+
+<span class="tok-w">    </span><span class="tok-n">merge</span><span class="tok-p">(</span><span class="tok-n">planos</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">complexImage</span><span class="tok-p">);</span><span class="tok-w"></span>
+
+<span class="tok-w">    </span><span class="tok-n">filter</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-n">Mat</span><span class="tok-p">((</span><span class="tok-n">dft_M</span><span class="tok-w"> </span><span class="tok-o">&amp;</span><span class="tok-w"> </span><span class="tok-mi">-2</span><span class="tok-p">),</span><span class="tok-w"> </span><span class="tok-p">(</span><span class="tok-n">dft_N</span><span class="tok-w"> </span><span class="tok-o">&amp;</span><span class="tok-w"> </span><span class="tok-mi">-2</span><span class="tok-p">),</span><span class="tok-w"> </span><span class="tok-n">CV_32FC2</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">Scalar</span><span class="tok-p">(</span><span class="tok-mi">0</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-mi">0</span><span class="tok-p">));</span><span class="tok-w"></span>
+
+<span class="tok-w">    </span><span class="tok-c1">// Preenche o filtro homomórfico com os valores dados pela função</span>
+<span class="tok-w">    </span><span class="tok-k">for</span><span class="tok-w"> </span><span class="tok-p">(</span><span class="tok-kt">int</span><span class="tok-w"> </span><span class="tok-n">i</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-mi">0</span><span class="tok-p">;</span><span class="tok-w"> </span><span class="tok-n">i</span><span class="tok-w"> </span><span class="tok-o">&lt;</span><span class="tok-w"> </span><span class="tok-n">dft_M</span><span class="tok-p">;</span><span class="tok-w"> </span><span class="tok-n">i</span><span class="tok-o">++</span><span class="tok-p">)</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-p">{</span><span class="tok-w"></span>
+<span class="tok-w">        </span><span class="tok-k">for</span><span class="tok-w"> </span><span class="tok-p">(</span><span class="tok-kt">int</span><span class="tok-w"> </span><span class="tok-n">j</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-mi">0</span><span class="tok-p">;</span><span class="tok-w"> </span><span class="tok-n">j</span><span class="tok-w"> </span><span class="tok-o">&lt;</span><span class="tok-w"> </span><span class="tok-n">dft_N</span><span class="tok-p">;</span><span class="tok-w"> </span><span class="tok-n">j</span><span class="tok-o">++</span><span class="tok-p">)</span><span class="tok-w"></span>
+<span class="tok-w">        </span><span class="tok-p">{</span><span class="tok-w"></span>
+<span class="tok-w">            </span><span class="tok-kt">float</span><span class="tok-w"> </span><span class="tok-n">h</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-p">(</span><span class="tok-kt">float</span><span class="tok-p">)(</span><span class="tok-n">gH</span><span class="tok-w"> </span><span class="tok-o">-</span><span class="tok-w"> </span><span class="tok-n">gL</span><span class="tok-p">)</span><span class="tok-w"> </span><span class="tok-o">*</span><span class="tok-w"> </span><span class="tok-p">(</span><span class="tok-mf">1.0</span><span class="tok-w"> </span><span class="tok-o">-</span><span class="tok-w"> </span><span class="tok-n">exp</span><span class="tok-p">(</span><span class="tok-o">-</span><span class="tok-n">c</span><span class="tok-w"> </span><span class="tok-o">*</span><span class="tok-w"> </span><span class="tok-p">(</span><span class="tok-n">pow</span><span class="tok-p">(</span><span class="tok-n">abs</span><span class="tok-p">(</span><span class="tok-n">i</span><span class="tok-w"> </span><span class="tok-o">-</span><span class="tok-w"> </span><span class="tok-n">dft_M</span><span class="tok-w"> </span><span class="tok-o">/</span><span class="tok-w"> </span><span class="tok-mi">2</span><span class="tok-p">)</span><span class="tok-w"> </span><span class="tok-o">+</span><span class="tok-w"> </span><span class="tok-n">abs</span><span class="tok-p">(</span><span class="tok-n">j</span><span class="tok-w"> </span><span class="tok-o">-</span><span class="tok-w"> </span><span class="tok-n">dft_N</span><span class="tok-w"> </span><span class="tok-o">/</span><span class="tok-w"> </span><span class="tok-mi">2</span><span class="tok-p">),</span><span class="tok-w"> </span><span class="tok-mi">2</span><span class="tok-p">)</span><span class="tok-w"> </span><span class="tok-o">/</span><span class="tok-w"> </span><span class="tok-n">pow</span><span class="tok-p">(</span><span class="tok-n">d0</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-mi">2</span><span class="tok-p">))))</span><span class="tok-w"> </span><span class="tok-o">+</span><span class="tok-w"> </span><span class="tok-n">gL</span><span class="tok-p">;</span><span class="tok-w"></span>
+<span class="tok-w">            </span><span class="tok-n">filter</span><span class="tok-p">.</span><span class="tok-n">at</span><span class="tok-o">&lt;</span><span class="tok-n">Vec2f</span><span class="tok-o">&gt;</span><span class="tok-p">(</span><span class="tok-n">i</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">j</span><span class="tok-p">)[</span><span class="tok-mi">0</span><span class="tok-p">]</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-n">h</span><span class="tok-p">;</span><span class="tok-w"></span>
+<span class="tok-w">            </span><span class="tok-n">filter</span><span class="tok-p">.</span><span class="tok-n">at</span><span class="tok-o">&lt;</span><span class="tok-n">Vec2f</span><span class="tok-o">&gt;</span><span class="tok-p">(</span><span class="tok-n">i</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">j</span><span class="tok-p">)[</span><span class="tok-mi">1</span><span class="tok-p">]</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-n">h</span><span class="tok-p">;</span><span class="tok-w"></span>
+<span class="tok-w">        </span><span class="tok-p">}</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-p">}</span><span class="tok-w"></span>
+
+<span class="tok-w">    </span><span class="tok-n">split</span><span class="tok-p">(</span><span class="tok-n">filter</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">filtros</span><span class="tok-p">);</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-n">normalize</span><span class="tok-p">(</span><span class="tok-n">filtros</span><span class="tok-p">[</span><span class="tok-mi">0</span><span class="tok-p">],</span><span class="tok-w"> </span><span class="tok-n">filter_print</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-mf">0.0</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-mf">1.0</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">cv</span><span class="tok-o">::</span><span class="tok-n">NORM_MINMAX</span><span class="tok-p">);</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-n">imshow</span><span class="tok-p">(</span><span class="tok-s">&quot;filtro&quot;</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">filter_print</span><span class="tok-p">);</span><span class="tok-w"></span>
+<span class="tok-p">}</span><span class="tok-w"></span>
+
+<span class="tok-kt">void</span><span class="tok-w"> </span><span class="tok-nf">makeImgFinal</span><span class="tok-p">(){</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-n">dft</span><span class="tok-p">(</span><span class="tok-n">complexImage</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">complexImage</span><span class="tok-p">);</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-n">deslocaDFT</span><span class="tok-p">(</span><span class="tok-n">complexImage</span><span class="tok-p">);</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-n">mulSpectrums</span><span class="tok-p">(</span><span class="tok-n">complexImage</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">filter</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">complexImage</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-mi">0</span><span class="tok-p">);</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-n">deslocaDFT</span><span class="tok-p">(</span><span class="tok-n">complexImage</span><span class="tok-p">);</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-n">idft</span><span class="tok-p">(</span><span class="tok-n">complexImage</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">complexImage</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">DFT_SCALE</span><span class="tok-p">);</span><span class="tok-w"></span>
+
+<span class="tok-w">    </span><span class="tok-n">cv</span><span class="tok-o">::</span><span class="tok-n">exp</span><span class="tok-p">(</span><span class="tok-n">complexImage</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">complexImage</span><span class="tok-p">);</span><span class="tok-w"></span>
+
+<span class="tok-w">    </span><span class="tok-n">planos</span><span class="tok-p">.</span><span class="tok-n">clear</span><span class="tok-p">();</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-n">split</span><span class="tok-p">(</span><span class="tok-n">complexImage</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">planos</span><span class="tok-p">);</span><span class="tok-w"></span>
+
+<span class="tok-w">    </span><span class="tok-c1">// normaliza a parte real para exibicao</span>
+<span class="tok-w">    </span><span class="tok-n">normalize</span><span class="tok-p">(</span><span class="tok-n">planos</span><span class="tok-p">[</span><span class="tok-mi">0</span><span class="tok-p">],</span><span class="tok-w"> </span><span class="tok-n">output</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-mf">0.0</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-mf">1.0</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">cv</span><span class="tok-o">::</span><span class="tok-n">NORM_MINMAX</span><span class="tok-p">);</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-c1">// imshow(&quot;imagem_original&quot;, tmp);</span>
+<span class="tok-w">    </span><span class="tok-n">imshow</span><span class="tok-p">(</span><span class="tok-s">&quot;imagem_final&quot;</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">output</span><span class="tok-p">);</span><span class="tok-w"></span>
+<span class="tok-p">}</span><span class="tok-w"></span></code></pre>
+</div>
+</div>
+<div id="img-homomorfico" class="imageblock">
+<div class="content">
+<img src="imagens/fhm2.png" alt="Resultado">
+</div>
+<div class="title">Figure 8. Imagem original (esquerda) Imagem resultante da aplicação do filtro homomórfico (direita).</div>
+</div>
+<div class="paragraph">
+<p>Imagem original disponível em: <a href="https://unsplash.com/photos/HHyKGVt0_E0" class="bare">https://unsplash.com/photos/HHyKGVt0_E0</a></p>
+</div>
+<div class="paragraph">
+<p>Valores utilizados na aplicação: gH = 8, gL=6, c=10, d0=15.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_detecção_de_bordas_com_o_algoritmo_de_canny">9. Detecção de bordas com o algoritmo de Canny</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Nesta seção será apresentada a experiência da aplicação do algoritmo <em>Canny</em> de detecção de bordas.</p>
+</div>
+<div class="sect2">
+<h3 id="_exercício_pointilismo">9.1. Exercício Pointilismo</h3>
+<div class="paragraph">
+<p>Utilizando o programa <strong><em>canny.cpp</em></strong> e <strong><em>pontilhismo.cpp</em></strong> como referência. Foi desenvolvido um algoritmo para gerar o efeito pontilhista em uma imagem fornecida através da chamada do programa. Utilizando o algoritmo de Canny, detectam-se as bordas presente na imagem para aumentar sua a qualidade da representação pointilista, considerando realizar o desenho de circulos menores, quanto maior for o destaque de tais bordas, com os círculos menores com <strong><em>6 pixels</em></strong> de raio em os maiores com raio de <strong><em>16 pixels</em></strong>. Os circulos menores são desenhados nas posições indicadas como borda pelo algoritmo de <em>Canny</em>.</p>
+</div>
+<div class="paragraph">
+<p>Abaixo, tem-se o código da implementação e uma imagem da execução da aplicação.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="cpp"><span></span><span class="tok-cp">#include</span><span class="tok-w"> </span><span class="tok-cpf">&lt;iostream&gt;</span><span class="tok-cp"></span>
+<span class="tok-cp">#include</span><span class="tok-w"> </span><span class="tok-cpf">&quot;opencv2/opencv.hpp&quot;</span><span class="tok-cp"></span>
+<span class="tok-cp">#include</span><span class="tok-w"> </span><span class="tok-cpf">&lt;algorithm&gt;</span><span class="tok-cp"></span>
+<span class="tok-cp">#include</span><span class="tok-w"> </span><span class="tok-cpf">&lt;vector&gt;</span><span class="tok-cp"></span>
+<span class="tok-cp">#include</span><span class="tok-w"> </span><span class="tok-cpf">&lt;ctime&gt;</span><span class="tok-cp"></span>
+<span class="tok-cp">#include</span><span class="tok-w"> </span><span class="tok-cpf">&lt;numeric&gt;</span><span class="tok-cp"></span>
+
+<span class="tok-k">using</span><span class="tok-w"> </span><span class="tok-k">namespace</span><span class="tok-w"> </span><span class="tok-nn">std</span><span class="tok-p">;</span><span class="tok-w"></span>
+<span class="tok-k">using</span><span class="tok-w"> </span><span class="tok-k">namespace</span><span class="tok-w"> </span><span class="tok-nn">cv</span><span class="tok-p">;</span><span class="tok-w"></span>
+
+<span class="tok-cp">#define STEP 4</span>
+<span class="tok-cp">#define JITTER 20</span>
+<span class="tok-cp">#define RAIO 16</span>
+<span class="tok-cp">#define RAIO_PEQUENO 6</span>
+
+<span class="tok-kt">int</span><span class="tok-w"> </span><span class="tok-nf">main</span><span class="tok-p">(</span><span class="tok-kt">int</span><span class="tok-w"> </span><span class="tok-n">argc</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-kt">char</span><span class="tok-w"> </span><span class="tok-o">**</span><span class="tok-n">argv</span><span class="tok-p">)</span><span class="tok-w"></span>
+<span class="tok-p">{</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-kt">unsigned</span><span class="tok-w"> </span><span class="tok-n">width</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">height</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">limite_inferior</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-mi">50</span><span class="tok-p">;</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-kt">unsigned</span><span class="tok-w"> </span><span class="tok-n">x</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">y</span><span class="tok-p">;</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-n">vector</span><span class="tok-o">&lt;</span><span class="tok-kt">unsigned</span><span class="tok-o">&gt;</span><span class="tok-w"> </span><span class="tok-n">xrange</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">yrange</span><span class="tok-p">;</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-n">vector</span><span class="tok-o">&lt;</span><span class="tok-n">Vec6i</span><span class="tok-o">&gt;</span><span class="tok-w"> </span><span class="tok-n">pontos</span><span class="tok-p">;</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-n">Mat</span><span class="tok-w"> </span><span class="tok-n">points</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">image</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">border</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">image_bw</span><span class="tok-p">;</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-n">Vec3b</span><span class="tok-w"> </span><span class="tok-n">gray</span><span class="tok-p">;</span><span class="tok-w"></span>
+
+<span class="tok-w">    </span><span class="tok-n">image</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-n">imread</span><span class="tok-p">(</span><span class="tok-n">argv</span><span class="tok-p">[</span><span class="tok-mi">1</span><span class="tok-p">],</span><span class="tok-w"> </span><span class="tok-n">cv</span><span class="tok-o">::</span><span class="tok-n">IMREAD_COLOR</span><span class="tok-p">);</span><span class="tok-w"></span>
+
+<span class="tok-w">    </span><span class="tok-n">cvtColor</span><span class="tok-p">(</span><span class="tok-n">image</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">image_bw</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">cv</span><span class="tok-o">::</span><span class="tok-n">COLOR_BGR2GRAY</span><span class="tok-p">);</span><span class="tok-w"></span>
+
+<span class="tok-w">    </span><span class="tok-n">width</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-n">image</span><span class="tok-p">.</span><span class="tok-n">size</span><span class="tok-p">().</span><span class="tok-n">width</span><span class="tok-p">;</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-n">height</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-n">image</span><span class="tok-p">.</span><span class="tok-n">size</span><span class="tok-p">().</span><span class="tok-n">height</span><span class="tok-p">;</span><span class="tok-w"></span>
+
+<span class="tok-w">    </span><span class="tok-c1">// Aplica o algoritmo de canny na imagem</span>
+<span class="tok-w">    </span><span class="tok-n">Canny</span><span class="tok-p">(</span><span class="tok-n">image_bw</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">border</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">limite_inferior</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-mi">3</span><span class="tok-w"> </span><span class="tok-o">*</span><span class="tok-w"> </span><span class="tok-n">limite_inferior</span><span class="tok-p">);</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-c1">// imshow(&quot;bordas_canny&quot;, border);</span>
+<span class="tok-w">    </span><span class="tok-c1">// waitKey();</span>
+
+<span class="tok-w">    </span><span class="tok-c1">// Obtem imagem pontilhista</span>
+<span class="tok-w">    </span><span class="tok-n">xrange</span><span class="tok-p">.</span><span class="tok-n">resize</span><span class="tok-p">(</span><span class="tok-n">height</span><span class="tok-w"> </span><span class="tok-o">/</span><span class="tok-w"> </span><span class="tok-n">STEP</span><span class="tok-p">);</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-n">yrange</span><span class="tok-p">.</span><span class="tok-n">resize</span><span class="tok-p">(</span><span class="tok-n">width</span><span class="tok-w"> </span><span class="tok-o">/</span><span class="tok-w"> </span><span class="tok-n">STEP</span><span class="tok-p">);</span><span class="tok-w"></span>
+
+<span class="tok-w">    </span><span class="tok-n">iota</span><span class="tok-p">(</span><span class="tok-n">xrange</span><span class="tok-p">.</span><span class="tok-n">begin</span><span class="tok-p">(),</span><span class="tok-w"> </span><span class="tok-n">xrange</span><span class="tok-p">.</span><span class="tok-n">end</span><span class="tok-p">(),</span><span class="tok-w"> </span><span class="tok-mi">0</span><span class="tok-p">);</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-n">iota</span><span class="tok-p">(</span><span class="tok-n">yrange</span><span class="tok-p">.</span><span class="tok-n">begin</span><span class="tok-p">(),</span><span class="tok-w"> </span><span class="tok-n">yrange</span><span class="tok-p">.</span><span class="tok-n">end</span><span class="tok-p">(),</span><span class="tok-w"> </span><span class="tok-mi">0</span><span class="tok-p">);</span><span class="tok-w"></span>
+
+<span class="tok-w">    </span><span class="tok-c1">// Realiza amostragem dos pontos</span>
+<span class="tok-w">    </span><span class="tok-k">for</span><span class="tok-w"> </span><span class="tok-p">(</span><span class="tok-n">uint</span><span class="tok-w"> </span><span class="tok-n">i</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-mi">0</span><span class="tok-p">;</span><span class="tok-w"> </span><span class="tok-n">i</span><span class="tok-w"> </span><span class="tok-o">&lt;</span><span class="tok-w"> </span><span class="tok-n">xrange</span><span class="tok-p">.</span><span class="tok-n">size</span><span class="tok-p">();</span><span class="tok-w"> </span><span class="tok-n">i</span><span class="tok-o">++</span><span class="tok-p">)</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-p">{</span><span class="tok-w"></span>
+<span class="tok-w">        </span><span class="tok-n">xrange</span><span class="tok-p">[</span><span class="tok-n">i</span><span class="tok-p">]</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-n">xrange</span><span class="tok-p">[</span><span class="tok-n">i</span><span class="tok-p">]</span><span class="tok-w"> </span><span class="tok-o">*</span><span class="tok-w"> </span><span class="tok-n">STEP</span><span class="tok-w"> </span><span class="tok-o">+</span><span class="tok-w"> </span><span class="tok-n">STEP</span><span class="tok-w"> </span><span class="tok-o">/</span><span class="tok-w"> </span><span class="tok-mi">2</span><span class="tok-p">;</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-p">}</span><span class="tok-w"></span>
+
+<span class="tok-w">    </span><span class="tok-k">for</span><span class="tok-w"> </span><span class="tok-p">(</span><span class="tok-n">uint</span><span class="tok-w"> </span><span class="tok-n">i</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-mi">0</span><span class="tok-p">;</span><span class="tok-w"> </span><span class="tok-n">i</span><span class="tok-w"> </span><span class="tok-o">&lt;</span><span class="tok-w"> </span><span class="tok-n">yrange</span><span class="tok-p">.</span><span class="tok-n">size</span><span class="tok-p">();</span><span class="tok-w"> </span><span class="tok-n">i</span><span class="tok-o">++</span><span class="tok-p">)</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-p">{</span><span class="tok-w"></span>
+<span class="tok-w">        </span><span class="tok-n">yrange</span><span class="tok-p">[</span><span class="tok-n">i</span><span class="tok-p">]</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-n">yrange</span><span class="tok-p">[</span><span class="tok-n">i</span><span class="tok-p">]</span><span class="tok-w"> </span><span class="tok-o">*</span><span class="tok-w"> </span><span class="tok-n">STEP</span><span class="tok-w"> </span><span class="tok-o">+</span><span class="tok-w"> </span><span class="tok-n">STEP</span><span class="tok-w"> </span><span class="tok-o">/</span><span class="tok-w"> </span><span class="tok-mi">2</span><span class="tok-p">;</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-p">}</span><span class="tok-w"></span>
+
+<span class="tok-w">    </span><span class="tok-n">points</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-n">Mat</span><span class="tok-p">(</span><span class="tok-n">height</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">width</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">CV_8UC3</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">Scalar</span><span class="tok-p">(</span><span class="tok-mi">255</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-mi">255</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-mi">255</span><span class="tok-p">));</span><span class="tok-w"></span>
+
+<span class="tok-w">    </span><span class="tok-n">random_shuffle</span><span class="tok-p">(</span><span class="tok-n">xrange</span><span class="tok-p">.</span><span class="tok-n">begin</span><span class="tok-p">(),</span><span class="tok-w"> </span><span class="tok-n">xrange</span><span class="tok-p">.</span><span class="tok-n">end</span><span class="tok-p">());</span><span class="tok-w"></span>
+
+<span class="tok-w">    </span><span class="tok-k">for</span><span class="tok-w"> </span><span class="tok-p">(</span><span class="tok-k">auto</span><span class="tok-w"> </span><span class="tok-nl">i</span> <span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-n">xrange</span><span class="tok-p">)</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-p">{</span><span class="tok-w"></span>
+<span class="tok-w">        </span><span class="tok-n">random_shuffle</span><span class="tok-p">(</span><span class="tok-n">yrange</span><span class="tok-p">.</span><span class="tok-n">begin</span><span class="tok-p">(),</span><span class="tok-w"> </span><span class="tok-n">yrange</span><span class="tok-p">.</span><span class="tok-n">end</span><span class="tok-p">());</span><span class="tok-w"></span>
+<span class="tok-w">        </span><span class="tok-k">for</span><span class="tok-w"> </span><span class="tok-p">(</span><span class="tok-k">auto</span><span class="tok-w"> </span><span class="tok-nl">j</span> <span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-n">yrange</span><span class="tok-p">)</span><span class="tok-w"></span>
+<span class="tok-w">        </span><span class="tok-p">{</span><span class="tok-w"></span>
+<span class="tok-w">            </span><span class="tok-n">x</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-n">i</span><span class="tok-w"> </span><span class="tok-o">+</span><span class="tok-w"> </span><span class="tok-n">rand</span><span class="tok-p">()</span><span class="tok-w"> </span><span class="tok-o">%</span><span class="tok-w"> </span><span class="tok-p">(</span><span class="tok-mi">2</span><span class="tok-w"> </span><span class="tok-o">*</span><span class="tok-w"> </span><span class="tok-n">JITTER</span><span class="tok-p">)</span><span class="tok-w"> </span><span class="tok-o">-</span><span class="tok-w"> </span><span class="tok-n">JITTER</span><span class="tok-w"> </span><span class="tok-o">+</span><span class="tok-w"> </span><span class="tok-mi">1</span><span class="tok-p">;</span><span class="tok-w"></span>
+<span class="tok-w">            </span><span class="tok-n">y</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-n">j</span><span class="tok-w"> </span><span class="tok-o">+</span><span class="tok-w"> </span><span class="tok-n">rand</span><span class="tok-p">()</span><span class="tok-w"> </span><span class="tok-o">%</span><span class="tok-w"> </span><span class="tok-p">(</span><span class="tok-mi">2</span><span class="tok-w"> </span><span class="tok-o">*</span><span class="tok-w"> </span><span class="tok-n">JITTER</span><span class="tok-p">)</span><span class="tok-w"> </span><span class="tok-o">-</span><span class="tok-w"> </span><span class="tok-n">JITTER</span><span class="tok-w"> </span><span class="tok-o">+</span><span class="tok-w"> </span><span class="tok-mi">1</span><span class="tok-p">;</span><span class="tok-w"></span>
+
+<span class="tok-w">            </span><span class="tok-c1">// Impede o algoritmo de pegar pontos além dos limites da imagem</span>
+<span class="tok-w">            </span><span class="tok-k">if</span><span class="tok-w"> </span><span class="tok-p">(</span><span class="tok-n">x</span><span class="tok-w"> </span><span class="tok-o">&gt;=</span><span class="tok-w"> </span><span class="tok-n">height</span><span class="tok-p">)</span><span class="tok-w"></span>
+<span class="tok-w">            </span><span class="tok-p">{</span><span class="tok-w"></span>
+<span class="tok-w">                </span><span class="tok-n">x</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-n">height</span><span class="tok-w"> </span><span class="tok-o">-</span><span class="tok-w"> </span><span class="tok-mi">1</span><span class="tok-p">;</span><span class="tok-w"></span>
+<span class="tok-w">            </span><span class="tok-p">}</span><span class="tok-w"></span>
+<span class="tok-w">            </span><span class="tok-k">if</span><span class="tok-w"> </span><span class="tok-p">(</span><span class="tok-n">y</span><span class="tok-w"> </span><span class="tok-o">&gt;=</span><span class="tok-w"> </span><span class="tok-n">width</span><span class="tok-p">)</span><span class="tok-w"></span>
+<span class="tok-w">            </span><span class="tok-p">{</span><span class="tok-w"></span>
+<span class="tok-w">                </span><span class="tok-n">y</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-n">width</span><span class="tok-w"> </span><span class="tok-o">-</span><span class="tok-w"> </span><span class="tok-mi">1</span><span class="tok-p">;</span><span class="tok-w"></span>
+<span class="tok-w">            </span><span class="tok-p">}</span><span class="tok-w"></span>
+
+<span class="tok-w">            </span><span class="tok-n">gray</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-n">image</span><span class="tok-p">.</span><span class="tok-n">at</span><span class="tok-o">&lt;</span><span class="tok-n">Vec3b</span><span class="tok-o">&gt;</span><span class="tok-p">(</span><span class="tok-n">x</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">y</span><span class="tok-p">);</span><span class="tok-w"></span>
+<span class="tok-w">            </span><span class="tok-n">circle</span><span class="tok-p">(</span><span class="tok-n">points</span><span class="tok-p">,</span><span class="tok-w"></span>
+<span class="tok-w">                   </span><span class="tok-n">cv</span><span class="tok-o">::</span><span class="tok-n">Point</span><span class="tok-p">(</span><span class="tok-n">y</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">x</span><span class="tok-p">),</span><span class="tok-w"></span>
+<span class="tok-w">                   </span><span class="tok-n">RAIO</span><span class="tok-p">,</span><span class="tok-w"></span>
+<span class="tok-w">                   </span><span class="tok-n">Scalar</span><span class="tok-p">(</span><span class="tok-n">gray</span><span class="tok-p">[</span><span class="tok-mi">0</span><span class="tok-p">],</span><span class="tok-w"> </span><span class="tok-n">gray</span><span class="tok-p">[</span><span class="tok-mi">1</span><span class="tok-p">],</span><span class="tok-w"> </span><span class="tok-n">gray</span><span class="tok-p">[</span><span class="tok-mi">2</span><span class="tok-p">]),</span><span class="tok-w"></span>
+<span class="tok-w">                   </span><span class="tok-mi">-1</span><span class="tok-p">,</span><span class="tok-w"></span>
+<span class="tok-w">                   </span><span class="tok-n">cv</span><span class="tok-o">::</span><span class="tok-n">LINE_AA</span><span class="tok-p">);</span><span class="tok-w"></span>
+<span class="tok-w">        </span><span class="tok-p">}</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-p">}</span><span class="tok-w"></span>
+
+<span class="tok-w">    </span><span class="tok-c1">//imshow(&quot;imagem_pontilhista&quot;, points);</span>
+<span class="tok-w">    </span><span class="tok-c1">//waitKey();</span>
+
+<span class="tok-w">    </span><span class="tok-c1">// Percorre matriz em busca da borda gerada pelo algoritmo de canny para</span>
+<span class="tok-w">    </span><span class="tok-c1">// desenhar pontos pequenos</span>
+<span class="tok-w">    </span><span class="tok-k">for</span><span class="tok-w"> </span><span class="tok-p">(</span><span class="tok-kt">unsigned</span><span class="tok-w"> </span><span class="tok-n">i</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-mi">0</span><span class="tok-p">;</span><span class="tok-w"> </span><span class="tok-n">i</span><span class="tok-w"> </span><span class="tok-o">&lt;</span><span class="tok-w"> </span><span class="tok-n">height</span><span class="tok-p">;</span><span class="tok-w"> </span><span class="tok-n">i</span><span class="tok-o">++</span><span class="tok-p">)</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-p">{</span><span class="tok-w"></span>
+<span class="tok-w">        </span><span class="tok-k">for</span><span class="tok-w"> </span><span class="tok-p">(</span><span class="tok-kt">unsigned</span><span class="tok-w"> </span><span class="tok-n">j</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-mi">0</span><span class="tok-p">;</span><span class="tok-w"> </span><span class="tok-n">j</span><span class="tok-w"> </span><span class="tok-o">&lt;</span><span class="tok-w"> </span><span class="tok-n">width</span><span class="tok-p">;</span><span class="tok-w"> </span><span class="tok-n">j</span><span class="tok-o">++</span><span class="tok-p">)</span><span class="tok-w"></span>
+<span class="tok-w">        </span><span class="tok-p">{</span><span class="tok-w"></span>
+<span class="tok-w">            </span><span class="tok-k">if</span><span class="tok-w"> </span><span class="tok-p">(</span><span class="tok-n">border</span><span class="tok-p">.</span><span class="tok-n">at</span><span class="tok-o">&lt;</span><span class="tok-n">uchar</span><span class="tok-o">&gt;</span><span class="tok-p">(</span><span class="tok-n">i</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">j</span><span class="tok-p">)</span><span class="tok-w"> </span><span class="tok-o">!=</span><span class="tok-w"> </span><span class="tok-mi">0</span><span class="tok-p">)</span><span class="tok-w"></span>
+<span class="tok-w">            </span><span class="tok-p">{</span><span class="tok-w"></span>
+<span class="tok-w">                </span><span class="tok-c1">// Armazena a cor origina do ponto, bem como sua posição na</span>
+<span class="tok-w">                </span><span class="tok-c1">// estrutura Vec6i, que armazena 6 inteiros</span>
+<span class="tok-w">                </span><span class="tok-n">gray</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-n">image</span><span class="tok-p">.</span><span class="tok-n">at</span><span class="tok-o">&lt;</span><span class="tok-n">Vec3b</span><span class="tok-o">&gt;</span><span class="tok-p">(</span><span class="tok-n">i</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">j</span><span class="tok-p">);</span><span class="tok-w"></span>
+<span class="tok-w">                </span><span class="tok-n">pontos</span><span class="tok-p">.</span><span class="tok-n">push_back</span><span class="tok-p">(</span><span class="tok-n">Vec6i</span><span class="tok-p">(</span><span class="tok-n">j</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">i</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">gray</span><span class="tok-p">[</span><span class="tok-mi">0</span><span class="tok-p">],</span><span class="tok-w"> </span><span class="tok-n">gray</span><span class="tok-p">[</span><span class="tok-mi">1</span><span class="tok-p">],</span><span class="tok-w"> </span><span class="tok-n">gray</span><span class="tok-p">[</span><span class="tok-mi">2</span><span class="tok-p">],</span><span class="tok-w"> </span><span class="tok-mi">0</span><span class="tok-p">));</span><span class="tok-w"></span>
+<span class="tok-w">            </span><span class="tok-p">}</span><span class="tok-w"></span>
+<span class="tok-w">        </span><span class="tok-p">}</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-p">}</span><span class="tok-w"></span>
+
+<span class="tok-w">    </span><span class="tok-n">random_shuffle</span><span class="tok-p">(</span><span class="tok-n">pontos</span><span class="tok-p">.</span><span class="tok-n">begin</span><span class="tok-p">(),</span><span class="tok-w"> </span><span class="tok-n">pontos</span><span class="tok-p">.</span><span class="tok-n">end</span><span class="tok-p">());</span><span class="tok-w"></span>
+
+<span class="tok-w">    </span><span class="tok-c1">// Desenha pontos pequenos na imagem</span>
+<span class="tok-w">    </span><span class="tok-n">Scalar</span><span class="tok-w"> </span><span class="tok-n">cor</span><span class="tok-p">;</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-k">for</span><span class="tok-w"> </span><span class="tok-p">(</span><span class="tok-kt">unsigned</span><span class="tok-w"> </span><span class="tok-n">i</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-mi">0</span><span class="tok-p">;</span><span class="tok-w"> </span><span class="tok-n">i</span><span class="tok-w"> </span><span class="tok-o">&lt;</span><span class="tok-w"> </span><span class="tok-n">pontos</span><span class="tok-p">.</span><span class="tok-n">size</span><span class="tok-p">();</span><span class="tok-w"> </span><span class="tok-n">i</span><span class="tok-o">++</span><span class="tok-p">)</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-p">{</span><span class="tok-w"></span>
+<span class="tok-w">        </span><span class="tok-n">Point</span><span class="tok-w"> </span><span class="tok-n">p</span><span class="tok-p">(</span><span class="tok-n">pontos</span><span class="tok-p">.</span><span class="tok-n">at</span><span class="tok-p">(</span><span class="tok-n">i</span><span class="tok-p">)[</span><span class="tok-mi">0</span><span class="tok-p">],</span><span class="tok-w"> </span><span class="tok-n">pontos</span><span class="tok-p">.</span><span class="tok-n">at</span><span class="tok-p">(</span><span class="tok-n">i</span><span class="tok-p">)[</span><span class="tok-mi">1</span><span class="tok-p">]);</span><span class="tok-w"></span>
+<span class="tok-w">        </span><span class="tok-n">cor</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-n">Scalar</span><span class="tok-p">(</span><span class="tok-n">pontos</span><span class="tok-p">.</span><span class="tok-n">at</span><span class="tok-p">(</span><span class="tok-n">i</span><span class="tok-p">)[</span><span class="tok-mi">2</span><span class="tok-p">],</span><span class="tok-w"> </span><span class="tok-n">pontos</span><span class="tok-p">.</span><span class="tok-n">at</span><span class="tok-p">(</span><span class="tok-n">i</span><span class="tok-p">)[</span><span class="tok-mi">3</span><span class="tok-p">],</span><span class="tok-w"> </span><span class="tok-n">pontos</span><span class="tok-p">.</span><span class="tok-n">at</span><span class="tok-p">(</span><span class="tok-n">i</span><span class="tok-p">)[</span><span class="tok-mi">4</span><span class="tok-p">]);</span><span class="tok-w"></span>
+<span class="tok-w">        </span><span class="tok-n">circle</span><span class="tok-p">(</span><span class="tok-n">points</span><span class="tok-p">,</span><span class="tok-w"></span>
+<span class="tok-w">               </span><span class="tok-n">p</span><span class="tok-p">,</span><span class="tok-w"></span>
+<span class="tok-w">               </span><span class="tok-n">RAIO_PEQUENO</span><span class="tok-p">,</span><span class="tok-w"></span>
+<span class="tok-w">               </span><span class="tok-n">cor</span><span class="tok-p">,</span><span class="tok-w"></span>
+<span class="tok-w">               </span><span class="tok-mi">-1</span><span class="tok-p">,</span><span class="tok-w"></span>
+<span class="tok-w">               </span><span class="tok-n">cv</span><span class="tok-o">::</span><span class="tok-n">LINE_AA</span><span class="tok-p">);</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-p">}</span><span class="tok-w"></span>
+
+<span class="tok-w">    </span><span class="tok-c1">// imshow(&quot;imagem_pontilhista_corrigida&quot;, points);</span>
+<span class="tok-w">    </span><span class="tok-c1">// waitKey();</span>
+
+<span class="tok-w">    </span><span class="tok-n">imwrite</span><span class="tok-p">(</span><span class="tok-s">&quot;imagem_pontilhista_corrigida.jpg&quot;</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">points</span><span class="tok-p">);</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-k">return</span><span class="tok-w"> </span><span class="tok-mi">0</span><span class="tok-p">;</span><span class="tok-w"></span>
+<span class="tok-p">}</span><span class="tok-w"></span></code></pre>
+</div>
+</div>
+<div id="img-pointilismo" class="imageblock">
+<div class="content">
+<img src="imagens/imagem_pontilhista_corrigida.jpg" alt="Resultado" width="640">
+</div>
+<div class="title">Figure 9. Imagem resultante do programa de desenho pointilista utilizando os pontos de bordas indicados pelo algoritmo de <em>Canny</em>.</div>
+</div>
+<div class="paragraph">
+<p>Imagem original disponível em: <a href="https://unsplash.com/photos/V9VDd-2s3aE" class="bare">https://unsplash.com/photos/V9VDd-2s3aE</a></p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_quantização_vetorial_com_k_means">10. Quantização vetorial com k-means</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_exercicio_kmeans">10.1. Exercicio <strong><em>kmeans</em></strong></h3>
+<div class="paragraph">
+<p>Com base no programa kmeans.cpp, um programa foi desenvolvido para executar <em>nRodadas=1</em> do algoritmo k-means em uma imagem iniciando os centros de forma aleatória. O programa recebe como parametro de entrada uma imagem e tem como saída um vídeo com 2 frames por segundo, com uma duração total de 10 segundos, portanto, executado <strong><em>20 vezes</em></strong>, a fim de se verificar a diversidade de figuras produzidas.</p>
+</div>
+<div class="paragraph">
+<p>O resultado da aplicação do algoritmo pode ser verificado abaixo, bem como o seu código fonte.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="cpp"><span></span><span class="tok-cp">#include</span><span class="tok-w"> </span><span class="tok-cpf">&lt;opencv2/opencv.hpp&gt;</span><span class="tok-cp"></span>
+<span class="tok-cp">#include</span><span class="tok-w"> </span><span class="tok-cpf">&lt;cstdlib&gt;</span><span class="tok-cp"></span>
+<span class="tok-cp">#include</span><span class="tok-w"> </span><span class="tok-cpf">&lt;vector&gt;</span><span class="tok-cp"></span>
+<span class="tok-cp">#include</span><span class="tok-w"> </span><span class="tok-cpf">&lt;iostream&gt;</span><span class="tok-cp"></span>
+
+<span class="tok-k">using</span><span class="tok-w"> </span><span class="tok-k">namespace</span><span class="tok-w"> </span><span class="tok-nn">std</span><span class="tok-p">;</span><span class="tok-w"></span>
+<span class="tok-k">using</span><span class="tok-w"> </span><span class="tok-k">namespace</span><span class="tok-w"> </span><span class="tok-nn">cv</span><span class="tok-p">;</span><span class="tok-w"></span>
+
+<span class="tok-kt">double</span><span class="tok-w"> </span><span class="tok-n">frame_width</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">frame_height</span><span class="tok-p">;</span><span class="tok-w"></span>
+
+<span class="tok-kt">int</span><span class="tok-w"> </span><span class="tok-nf">main</span><span class="tok-p">(</span><span class="tok-kt">int</span><span class="tok-w"> </span><span class="tok-n">argc</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-kt">char</span><span class="tok-w"> </span><span class="tok-o">**</span><span class="tok-n">argv</span><span class="tok-p">)</span><span class="tok-w"></span>
+<span class="tok-p">{</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-kt">int</span><span class="tok-w"> </span><span class="tok-n">nClusters</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-mi">8</span><span class="tok-p">;</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-n">Mat</span><span class="tok-w"> </span><span class="tok-n">rotulos</span><span class="tok-p">;</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-kt">int</span><span class="tok-w"> </span><span class="tok-n">nRodadas</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-mi">1</span><span class="tok-p">;</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-kt">int</span><span class="tok-w"> </span><span class="tok-n">nExecucoes</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-mi">20</span><span class="tok-p">;</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-n">Mat</span><span class="tok-w"> </span><span class="tok-n">centros</span><span class="tok-p">;</span><span class="tok-w"></span>
+
+<span class="tok-w">    </span><span class="tok-k">if</span><span class="tok-w"> </span><span class="tok-p">(</span><span class="tok-n">argc</span><span class="tok-w"> </span><span class="tok-o">!=</span><span class="tok-w"> </span><span class="tok-mi">2</span><span class="tok-p">)</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-p">{</span><span class="tok-w"></span>
+<span class="tok-w">        </span><span class="tok-n">cout</span><span class="tok-o">&lt;&lt;</span><span class="tok-s">&quot;</span><span class="tok-se">\n</span><span class="tok-s">Quantidade de argumentos errada</span><span class="tok-se">\n</span><span class="tok-s">Finalizando...&quot;</span><span class="tok-p">;</span><span class="tok-w"></span>
+<span class="tok-w">        </span><span class="tok-k">return</span><span class="tok-w"> </span><span class="tok-mi">-1</span><span class="tok-p">;</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-p">}</span><span class="tok-w"></span>
+
+<span class="tok-w">    </span><span class="tok-c1">// leitura da imagem</span>
+<span class="tok-w">    </span><span class="tok-n">Mat</span><span class="tok-w"> </span><span class="tok-n">imagem</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-n">imread</span><span class="tok-p">(</span><span class="tok-n">argv</span><span class="tok-p">[</span><span class="tok-mi">1</span><span class="tok-p">],</span><span class="tok-w"> </span><span class="tok-n">cv</span><span class="tok-o">::</span><span class="tok-n">IMREAD_COLOR</span><span class="tok-p">);</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-n">Mat</span><span class="tok-w"> </span><span class="tok-n">samples</span><span class="tok-p">(</span><span class="tok-n">imagem</span><span class="tok-p">.</span><span class="tok-n">rows</span><span class="tok-w"> </span><span class="tok-o">*</span><span class="tok-w"> </span><span class="tok-n">imagem</span><span class="tok-p">.</span><span class="tok-n">cols</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-mi">3</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">CV_32F</span><span class="tok-p">);</span><span class="tok-w"></span>
+
+<span class="tok-w">    </span><span class="tok-n">frame_width</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-n">imagem</span><span class="tok-p">.</span><span class="tok-n">cols</span><span class="tok-p">;</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-n">frame_height</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-n">imagem</span><span class="tok-p">.</span><span class="tok-n">rows</span><span class="tok-p">;</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-k">const</span><span class="tok-w"> </span><span class="tok-kt">int</span><span class="tok-w"> </span><span class="tok-n">frames_per_second</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-mi">2</span><span class="tok-p">;</span><span class="tok-w"></span>
+<span class="tok-w">    </span>
+<span class="tok-w">    </span><span class="tok-n">cv</span><span class="tok-o">::</span><span class="tok-n">Size</span><span class="tok-w"> </span><span class="tok-n">frame_size</span><span class="tok-p">(</span><span class="tok-n">frame_width</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">frame_height</span><span class="tok-p">);</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-n">cv</span><span class="tok-o">::</span><span class="tok-n">VideoWriter</span><span class="tok-w"> </span><span class="tok-n">output</span><span class="tok-p">(</span><span class="tok-s">&quot;kmeans_output.avi&quot;</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">cv</span><span class="tok-o">::</span><span class="tok-n">VideoWriter</span><span class="tok-o">::</span><span class="tok-n">fourcc</span><span class="tok-p">(</span><span class="tok-sc">&#39;M&#39;</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-sc">&#39;J&#39;</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-sc">&#39;P&#39;</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-sc">&#39;G&#39;</span><span class="tok-p">),</span><span class="tok-w"> </span><span class="tok-n">frames_per_second</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">frame_size</span><span class="tok-p">);</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-n">std</span><span class="tok-o">::</span><span class="tok-n">cout</span><span class="tok-w"> </span><span class="tok-o">&lt;&lt;</span><span class="tok-w"> </span><span class="tok-s">&quot;</span><span class="tok-se">\n</span><span class="tok-s">largura = &quot;</span><span class="tok-w"> </span><span class="tok-o">&lt;&lt;</span><span class="tok-w"> </span><span class="tok-n">frame_width</span><span class="tok-w"> </span><span class="tok-o">&lt;&lt;</span><span class="tok-w"> </span><span class="tok-s">&quot;</span><span class="tok-se">\n</span><span class="tok-s">&quot;</span><span class="tok-p">;</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-n">std</span><span class="tok-o">::</span><span class="tok-n">cout</span><span class="tok-w"> </span><span class="tok-o">&lt;&lt;</span><span class="tok-w"> </span><span class="tok-s">&quot;</span><span class="tok-se">\n</span><span class="tok-s">altura = &quot;</span><span class="tok-w"> </span><span class="tok-o">&lt;&lt;</span><span class="tok-w"> </span><span class="tok-n">frame_height</span><span class="tok-w"> </span><span class="tok-o">&lt;&lt;</span><span class="tok-w"> </span><span class="tok-s">&quot;</span><span class="tok-se">\n</span><span class="tok-s">&quot;</span><span class="tok-p">;</span><span class="tok-w"></span>
+
+<span class="tok-w">    </span><span class="tok-c1">// cv::namedWindow(&quot;kmeans&quot;, cv::WINDOW_KEEPRATIO | cv::WINDOW_NORMAL);</span>
+<span class="tok-w">    </span><span class="tok-c1">// waitKey();</span>
+<span class="tok-w">    </span><span class="tok-c1">// Insere cada pixel da matriz da imagem em um vetor</span>
+<span class="tok-w">    </span><span class="tok-k">for</span><span class="tok-w"> </span><span class="tok-p">(</span><span class="tok-kt">int</span><span class="tok-w"> </span><span class="tok-n">y</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-mi">0</span><span class="tok-p">;</span><span class="tok-w"> </span><span class="tok-n">y</span><span class="tok-w"> </span><span class="tok-o">&lt;</span><span class="tok-w"> </span><span class="tok-n">frame_height</span><span class="tok-p">;</span><span class="tok-w"> </span><span class="tok-n">y</span><span class="tok-o">++</span><span class="tok-p">)</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-p">{</span><span class="tok-w"></span>
+<span class="tok-w">        </span><span class="tok-k">for</span><span class="tok-w"> </span><span class="tok-p">(</span><span class="tok-kt">int</span><span class="tok-w"> </span><span class="tok-n">x</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-mi">0</span><span class="tok-p">;</span><span class="tok-w"> </span><span class="tok-n">x</span><span class="tok-w"> </span><span class="tok-o">&lt;</span><span class="tok-w"> </span><span class="tok-n">frame_width</span><span class="tok-p">;</span><span class="tok-w"> </span><span class="tok-n">x</span><span class="tok-o">++</span><span class="tok-p">)</span><span class="tok-w"></span>
+<span class="tok-w">        </span><span class="tok-p">{</span><span class="tok-w"></span>
+<span class="tok-w">            </span><span class="tok-k">for</span><span class="tok-w"> </span><span class="tok-p">(</span><span class="tok-kt">int</span><span class="tok-w"> </span><span class="tok-n">z</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-mi">0</span><span class="tok-p">;</span><span class="tok-w"> </span><span class="tok-n">z</span><span class="tok-w"> </span><span class="tok-o">&lt;</span><span class="tok-w"> </span><span class="tok-mi">3</span><span class="tok-p">;</span><span class="tok-w"> </span><span class="tok-n">z</span><span class="tok-o">++</span><span class="tok-p">)</span><span class="tok-w"></span>
+<span class="tok-w">            </span><span class="tok-p">{</span><span class="tok-w"></span>
+<span class="tok-w">                </span><span class="tok-n">samples</span><span class="tok-p">.</span><span class="tok-n">at</span><span class="tok-o">&lt;</span><span class="tok-kt">float</span><span class="tok-o">&gt;</span><span class="tok-p">(</span><span class="tok-n">y</span><span class="tok-w"> </span><span class="tok-o">+</span><span class="tok-w"> </span><span class="tok-n">x</span><span class="tok-w"> </span><span class="tok-o">*</span><span class="tok-w"> </span><span class="tok-n">frame_height</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">z</span><span class="tok-p">)</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-n">imagem</span><span class="tok-p">.</span><span class="tok-n">at</span><span class="tok-o">&lt;</span><span class="tok-n">Vec3b</span><span class="tok-o">&gt;</span><span class="tok-p">(</span><span class="tok-n">y</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">x</span><span class="tok-p">)[</span><span class="tok-n">z</span><span class="tok-p">];</span><span class="tok-w"></span>
+<span class="tok-w">            </span><span class="tok-p">}</span><span class="tok-w"></span>
+<span class="tok-w">        </span><span class="tok-p">}</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-p">}</span><span class="tok-w"></span>
+
+<span class="tok-w">    </span><span class="tok-c1">// Executa o kmeans nExecucoes vezes, inserindo-os no vetor rotulada</span>
+<span class="tok-w">    </span><span class="tok-n">vector</span><span class="tok-o">&lt;</span><span class="tok-n">Mat</span><span class="tok-o">&gt;</span><span class="tok-w"> </span><span class="tok-n">rotulada</span><span class="tok-p">(</span><span class="tok-n">nExecucoes</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">Mat</span><span class="tok-p">(</span><span class="tok-n">imagem</span><span class="tok-p">.</span><span class="tok-n">size</span><span class="tok-p">(),</span><span class="tok-w"> </span><span class="tok-n">imagem</span><span class="tok-p">.</span><span class="tok-n">type</span><span class="tok-p">()));</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-k">for</span><span class="tok-w"> </span><span class="tok-p">(</span><span class="tok-kt">int</span><span class="tok-w"> </span><span class="tok-n">i</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-mi">0</span><span class="tok-p">;</span><span class="tok-w"> </span><span class="tok-n">i</span><span class="tok-w"> </span><span class="tok-o">&lt;</span><span class="tok-w"> </span><span class="tok-n">nExecucoes</span><span class="tok-p">;</span><span class="tok-w"> </span><span class="tok-n">i</span><span class="tok-o">++</span><span class="tok-p">)</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-p">{</span><span class="tok-w"></span>
+<span class="tok-w">        </span><span class="tok-n">kmeans</span><span class="tok-p">(</span><span class="tok-n">samples</span><span class="tok-p">,</span><span class="tok-w"></span>
+<span class="tok-w">               </span><span class="tok-n">nClusters</span><span class="tok-p">,</span><span class="tok-w"></span>
+<span class="tok-w">               </span><span class="tok-n">rotulos</span><span class="tok-p">,</span><span class="tok-w"></span>
+<span class="tok-w">               </span><span class="tok-n">TermCriteria</span><span class="tok-p">(</span><span class="tok-n">cv</span><span class="tok-o">::</span><span class="tok-n">TermCriteria</span><span class="tok-o">::</span><span class="tok-n">MAX_ITER</span><span class="tok-w"> </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-n">cv</span><span class="tok-o">::</span><span class="tok-n">TermCriteria</span><span class="tok-o">::</span><span class="tok-n">EPS</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-mi">10000</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-mf">0.0001</span><span class="tok-p">),</span><span class="tok-w"></span>
+<span class="tok-w">               </span><span class="tok-n">nRodadas</span><span class="tok-p">,</span><span class="tok-w"></span>
+<span class="tok-w">               </span><span class="tok-n">KMEANS_RANDOM_CENTERS</span><span class="tok-p">,</span><span class="tok-w"></span>
+<span class="tok-w">               </span><span class="tok-n">centros</span><span class="tok-p">);</span><span class="tok-w"></span>
+
+<span class="tok-w">        </span><span class="tok-k">for</span><span class="tok-w"> </span><span class="tok-p">(</span><span class="tok-kt">int</span><span class="tok-w"> </span><span class="tok-n">y</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-mi">0</span><span class="tok-p">;</span><span class="tok-w"> </span><span class="tok-n">y</span><span class="tok-w"> </span><span class="tok-o">&lt;</span><span class="tok-w"> </span><span class="tok-n">frame_height</span><span class="tok-p">;</span><span class="tok-w"> </span><span class="tok-n">y</span><span class="tok-o">++</span><span class="tok-p">)</span><span class="tok-w"></span>
+<span class="tok-w">        </span><span class="tok-p">{</span><span class="tok-w"></span>
+<span class="tok-w">            </span><span class="tok-k">for</span><span class="tok-w"> </span><span class="tok-p">(</span><span class="tok-kt">int</span><span class="tok-w"> </span><span class="tok-n">x</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-mi">0</span><span class="tok-p">;</span><span class="tok-w"> </span><span class="tok-n">x</span><span class="tok-w"> </span><span class="tok-o">&lt;</span><span class="tok-w"> </span><span class="tok-n">frame_width</span><span class="tok-p">;</span><span class="tok-w"> </span><span class="tok-n">x</span><span class="tok-o">++</span><span class="tok-p">)</span><span class="tok-w"></span>
+<span class="tok-w">            </span><span class="tok-p">{</span><span class="tok-w"></span>
+<span class="tok-w">                </span><span class="tok-kt">int</span><span class="tok-w"> </span><span class="tok-n">indice</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-n">rotulos</span><span class="tok-p">.</span><span class="tok-n">at</span><span class="tok-o">&lt;</span><span class="tok-kt">int</span><span class="tok-o">&gt;</span><span class="tok-p">(</span><span class="tok-n">y</span><span class="tok-w"> </span><span class="tok-o">+</span><span class="tok-w"> </span><span class="tok-n">x</span><span class="tok-w"> </span><span class="tok-o">*</span><span class="tok-w"> </span><span class="tok-n">frame_height</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-mi">0</span><span class="tok-p">);</span><span class="tok-w"></span>
+<span class="tok-w">                </span><span class="tok-n">rotulada</span><span class="tok-p">.</span><span class="tok-n">at</span><span class="tok-p">(</span><span class="tok-n">i</span><span class="tok-p">).</span><span class="tok-n">at</span><span class="tok-o">&lt;</span><span class="tok-n">Vec3b</span><span class="tok-o">&gt;</span><span class="tok-p">(</span><span class="tok-n">y</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">x</span><span class="tok-p">)[</span><span class="tok-mi">0</span><span class="tok-p">]</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-p">(</span><span class="tok-n">uchar</span><span class="tok-p">)</span><span class="tok-n">centros</span><span class="tok-p">.</span><span class="tok-n">at</span><span class="tok-o">&lt;</span><span class="tok-kt">float</span><span class="tok-o">&gt;</span><span class="tok-p">(</span><span class="tok-n">indice</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-mi">0</span><span class="tok-p">);</span><span class="tok-w"></span>
+<span class="tok-w">                </span><span class="tok-n">rotulada</span><span class="tok-p">.</span><span class="tok-n">at</span><span class="tok-p">(</span><span class="tok-n">i</span><span class="tok-p">).</span><span class="tok-n">at</span><span class="tok-o">&lt;</span><span class="tok-n">Vec3b</span><span class="tok-o">&gt;</span><span class="tok-p">(</span><span class="tok-n">y</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">x</span><span class="tok-p">)[</span><span class="tok-mi">1</span><span class="tok-p">]</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-p">(</span><span class="tok-n">uchar</span><span class="tok-p">)</span><span class="tok-n">centros</span><span class="tok-p">.</span><span class="tok-n">at</span><span class="tok-o">&lt;</span><span class="tok-kt">float</span><span class="tok-o">&gt;</span><span class="tok-p">(</span><span class="tok-n">indice</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-mi">1</span><span class="tok-p">);</span><span class="tok-w"></span>
+<span class="tok-w">                </span><span class="tok-n">rotulada</span><span class="tok-p">.</span><span class="tok-n">at</span><span class="tok-p">(</span><span class="tok-n">i</span><span class="tok-p">).</span><span class="tok-n">at</span><span class="tok-o">&lt;</span><span class="tok-n">Vec3b</span><span class="tok-o">&gt;</span><span class="tok-p">(</span><span class="tok-n">y</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">x</span><span class="tok-p">)[</span><span class="tok-mi">2</span><span class="tok-p">]</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-p">(</span><span class="tok-n">uchar</span><span class="tok-p">)</span><span class="tok-n">centros</span><span class="tok-p">.</span><span class="tok-n">at</span><span class="tok-o">&lt;</span><span class="tok-kt">float</span><span class="tok-o">&gt;</span><span class="tok-p">(</span><span class="tok-n">indice</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-mi">2</span><span class="tok-p">);</span><span class="tok-w"></span>
+<span class="tok-w">            </span><span class="tok-p">}</span><span class="tok-w"></span>
+<span class="tok-w">        </span><span class="tok-p">}</span><span class="tok-w"></span>
+
+<span class="tok-w">        </span><span class="tok-c1">// imshow(&quot;kmeans&quot;, rotulada.at(i));</span>
+<span class="tok-w">        </span><span class="tok-n">output</span><span class="tok-p">.</span><span class="tok-n">write</span><span class="tok-p">(</span><span class="tok-n">rotulada</span><span class="tok-p">.</span><span class="tok-n">at</span><span class="tok-p">(</span><span class="tok-n">i</span><span class="tok-p">));</span><span class="tok-w"></span>
+<span class="tok-w">        </span><span class="tok-c1">// waitKey();</span>
+<span class="tok-w">    </span><span class="tok-p">}</span><span class="tok-w"></span>
+
+<span class="tok-w">    </span><span class="tok-n">output</span><span class="tok-p">.</span><span class="tok-n">release</span><span class="tok-p">();</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-n">imagem</span><span class="tok-p">.</span><span class="tok-n">release</span><span class="tok-p">();</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-k">return</span><span class="tok-w"> </span><span class="tok-mi">0</span><span class="tok-p">;</span><span class="tok-w"></span>
+<span class="tok-p">}</span><span class="tok-w"></span></code></pre>
+</div>
+</div>
+<div id="vid-kmeans1YT" class="videoblock">
+<div class="title">Kmeans - Video 1 - 6 clusters</div>
+<div class="content">
+<iframe width="640" height="480" src="https://www.youtube.com/embed/2fuIpNRbgGY?rel=0" frameborder="0" allowfullscreen></iframe>
+</div>
+</div>
+<div id="vid-kmeans2YT" class="videoblock">
+<div class="title">Kmeans - Video 2 - 8 clusters</div>
+<div class="content">
+<iframe width="640" height="480" src="https://www.youtube.com/embed/emw5PxdlJhA?rel=0" frameborder="0" allowfullscreen></iframe>
+</div>
+</div>
+<div class="paragraph">
+<p>Através do vídeo resultante do programa, é possivel verificar que os agrupamentos dos centros são escolhidos de forma aleatória, e que esses pontos mudam a cada rodada, produzindo assim imagens diferentes.</p>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-12-21 14:30:06 -0300
+Last updated 2022-12-21 19:37:37 -0300
 </div>
 </div>
 <script type="text/x-mathjax-config">
