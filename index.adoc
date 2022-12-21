@@ -170,6 +170,19 @@ Imagem original disponível em: <https://unsplash.com/photos/WZfvMEVl4XA>
 
 === Exercicio *_tiltshiftvideo_* ===
 
-=== Em construção. ===
+Utilizando o programa *_tiltshift.cpp_* como referência, foi desenvolvido um código que realiza a aplicação da técnica de tiltshift em um vídeo. O programa recebe um streaming de vídeo utilizando o recurso de câmera virtual do software _Obs Studio_, e assim como no programa anterior, utiliza-se as _trackbars_ para ajustar o comportamento desejado para o _tiltshift_. Ao finalizar o ajuste, pressiona-se a tecla *_"R"_* para iniciar a gravação do vídeo. A gravação é encerrada ao fechar a execução do programa. Além do efeito _tiltshift_, foi implementado o efeito _stopmotion_, de maneira sistemática considerando o descarte de 2 frames e a coleta do terceiro da sequência. Abaixo, tem-se o código da implementação e um vídeo demonstrativo da execução da aplicação.
+
+[source,cpp]
+
+----
+include::programas/tiltshiftVideo.cpp[]
+----
+
+O resultado da aplicação do algoritmo pode ser verificado abaixo.
+
+[#vid-tiltshiftYT]
+.Tiltshift em Video
+
+video::_bOYf0P-snE[youtube, 640,480]
 
 :!sectnums:
