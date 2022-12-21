@@ -126,11 +126,26 @@ video::K2K1d7GW6Jk[youtube, 640,480]
 
 == Filtragem no domínio espacial I ==
 
-=== Em construção. ===
+Nesta seção será utilizada a função filter2D para realizar a convolução digital entre uma imagem e uma máscara
 
 == Exercício *_laplgauss_* ==
 
-=== Em construção. ===
+Usando o programa *_filtroespacial.cpp_* como referência, uma opção de aplicar o filtro laplaciano após aplicar um filtro gaussiano na imagem foi adicionado. A letra de seleção para aplicar este filtro é a *X*. A ativação da utilização sequencial do filtro _laplgauss_ é feita alterando uma variável do tipo _bool_, atribuindo-se o valor _true_ após pressionada a tecla *X*. Se qualquer outra opção de filtro for selecionada, ocorre uma atribuição _false_ nesta variavel, e consequentemente, aplicando apenas o filtro selecionado.
+
+Abaixo, tem-se o código da implementação e uma imagem da execução da aplicação.
+
+[source,cpp]
+
+----
+include::programas/laplgauss.cpp[]
+----
+
+[#img-laplgauss]
+.Imagem comparativa entre a saída do laplaciano - Esquerda | laplaciano do gaussiano - Direita.
+image::laplgauss_saida.png[Resultado]
+Imagem original disponível em: <https://unsplash.com/photos/YJUMir8ild4>
+
+Nota-se que ao aplicar o laplaciano no filtro gaussiano, as bordas são menos evidentes, pois com o gaussiano borra-se a imagem, deixando as bordas mais suaves. Como o laplaciano realça as bordas, e estando borradas, ocorre um destaque menos acentuado na tonalidade.
 
 == Filtragem no domínio espacial II ==
 
