@@ -541,11 +541,9 @@ pre.pygments .tok-il { color: #666666 } /* Literal.Number.Integer.Long */
 <li><a href="#_exercício_laplgauss">6. Exercício <strong><em>laplgauss</em></strong></a></li>
 <li><a href="#_filtragem_no_domínio_espacial_ii">7. Filtragem no domínio espacial II</a>
 <ul class="sectlevel2">
-<li><a href="#_em_construção_2">7.1. Em construção.</a></li>
-<li><a href="#_exercicio_tiltshift">7.2. Exercicio <strong><em>tiltshift</em></strong></a></li>
-<li><a href="#_em_construção_3">7.3. Em construção.</a></li>
-<li><a href="#_exercicio_tiltshiftvideo">7.4. Exercicio <strong><em>tiltshiftvideo</em></strong></a></li>
-<li><a href="#_em_construção_4">7.5. Em construção.</a></li>
+<li><a href="#_exercicio_tiltshift">7.1. Exercicio <strong><em>tiltshift</em></strong></a></li>
+<li><a href="#_exercicio_tiltshiftvideo">7.2. Exercicio <strong><em>tiltshiftvideo</em></strong></a></li>
+<li><a href="#_em_construção_2">7.3. Em construção.</a></li>
 </ul>
 </li>
 </ul>
@@ -1802,24 +1800,197 @@ O resultado do algorítmo pode ser visto abaixo.</p>
 <div class="sect1">
 <h2 id="_filtragem_no_domínio_espacial_ii">7. Filtragem no domínio espacial II</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>Nesta seção será apresentada a experiÊncia do efeito tilt-shift usando técnicas de processamento digital de imagens.</p>
+</div>
 <div class="sect2">
-<h3 id="_em_construção_2">7.1. Em construção.</h3>
+<h3 id="_exercicio_tiltshift">7.1. Exercicio <strong><em>tiltshift</em></strong></h3>
+<div class="paragraph">
+<p>Usando o programa <strong><em>addweighted.cpp</em></strong> como referência, foi implmementado um programa para a realizar o tilt-shift em uma imagem colorida.</p>
+</div>
+<div class="paragraph">
+<p>Abaixo, tem-se o código da implementação e uma imagem da execução da aplicação.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="cpp"><span></span><span class="tok-cp">#include</span><span class="tok-w"> </span><span class="tok-cpf">&lt;iostream&gt;</span><span class="tok-cp"></span>
+<span class="tok-cp">#include</span><span class="tok-w"> </span><span class="tok-cpf">&lt;opencv2/opencv.hpp&gt;</span><span class="tok-cp"></span>
+
+<span class="tok-k">using</span><span class="tok-w"> </span><span class="tok-k">namespace</span><span class="tok-w"> </span><span class="tok-nn">cv</span><span class="tok-p">;</span><span class="tok-w"></span>
+<span class="tok-k">using</span><span class="tok-w"> </span><span class="tok-k">namespace</span><span class="tok-w"> </span><span class="tok-nn">std</span><span class="tok-p">;</span><span class="tok-w"></span>
+
+<span class="tok-kt">float</span><span class="tok-w"> </span><span class="tok-n">l1</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-mi">-100</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">l2</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-mi">50</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">d</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-mi">6</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">centro</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-mi">100</span><span class="tok-p">;</span><span class="tok-w"></span>
+
+<span class="tok-kt">int</span><span class="tok-w"> </span><span class="tok-n">matriz_media_tam</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-mi">7</span><span class="tok-p">;</span><span class="tok-w"></span>
+<span class="tok-kt">int</span><span class="tok-w"> </span><span class="tok-n">altura</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">largura</span><span class="tok-p">;</span><span class="tok-w"></span>
+
+<span class="tok-kt">int</span><span class="tok-w"> </span><span class="tok-n">slider_altura</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-mi">0</span><span class="tok-p">;</span><span class="tok-w"></span>
+<span class="tok-kt">int</span><span class="tok-w"> </span><span class="tok-n">slider_altura_max</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-mi">100</span><span class="tok-p">;</span><span class="tok-w"></span>
+
+<span class="tok-kt">int</span><span class="tok-w"> </span><span class="tok-n">slider_decaimento</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-mi">0</span><span class="tok-p">;</span><span class="tok-w"></span>
+<span class="tok-kt">int</span><span class="tok-w"> </span><span class="tok-n">slider_decaimento_max</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-mi">100</span><span class="tok-p">;</span><span class="tok-w"></span>
+
+<span class="tok-kt">int</span><span class="tok-w"> </span><span class="tok-n">slider_deslocamento</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-mi">0</span><span class="tok-p">;</span><span class="tok-w"></span>
+<span class="tok-kt">int</span><span class="tok-w"> </span><span class="tok-n">slider_deslocamento_max</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-mi">100</span><span class="tok-p">;</span><span class="tok-w"></span>
+
+<span class="tok-n">Mat</span><span class="tok-w"> </span><span class="tok-n">imagem</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">imagem_borrada</span><span class="tok-p">;</span><span class="tok-w"></span>
+
+<span class="tok-kt">char</span><span class="tok-w"> </span><span class="tok-n">TrackbarName</span><span class="tok-p">[</span><span class="tok-mi">50</span><span class="tok-p">];</span><span class="tok-w"></span>
+
+<span class="tok-kt">void</span><span class="tok-w"> </span><span class="tok-nf">aplicar_Efeito</span><span class="tok-p">();</span><span class="tok-w"></span>
+
+<span class="tok-kt">void</span><span class="tok-w"> </span><span class="tok-nf">on_trackbar_deslocamento</span><span class="tok-p">(</span><span class="tok-kt">int</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-kt">void</span><span class="tok-w"> </span><span class="tok-o">*</span><span class="tok-p">)</span><span class="tok-w"></span>
+<span class="tok-p">{</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-c1">// O centro é definido pela posição do slider, de forma que</span>
+<span class="tok-w">    </span><span class="tok-c1">// 0 - topo imagem e 100 -&gt; fundo imagem</span>
+<span class="tok-w">    </span><span class="tok-n">centro</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-n">slider_deslocamento</span><span class="tok-w"> </span><span class="tok-o">*</span><span class="tok-w"> </span><span class="tok-n">altura</span><span class="tok-w"> </span><span class="tok-o">/</span><span class="tok-w"> </span><span class="tok-mi">100</span><span class="tok-p">;</span><span class="tok-w"></span>
+
+<span class="tok-w">    </span><span class="tok-n">aplicar_Efeito</span><span class="tok-p">();</span><span class="tok-w"></span>
+<span class="tok-p">}</span><span class="tok-w"></span>
+
+<span class="tok-kt">void</span><span class="tok-w"> </span><span class="tok-nf">on_trackbar_altura</span><span class="tok-p">(</span><span class="tok-kt">int</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-kt">void</span><span class="tok-w"> </span><span class="tok-o">*</span><span class="tok-p">)</span><span class="tok-w"></span>
+<span class="tok-p">{</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-c1">// O slider da altura define a distância de l1 e l2 do centro do tilt-shift</span>
+<span class="tok-w">    </span><span class="tok-kt">int</span><span class="tok-w"> </span><span class="tok-n">alt</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-n">altura</span><span class="tok-w"> </span><span class="tok-o">*</span><span class="tok-w"> </span><span class="tok-n">slider_altura</span><span class="tok-w"> </span><span class="tok-o">/</span><span class="tok-w"> </span><span class="tok-mi">100</span><span class="tok-p">;</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-n">l1</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-o">-</span><span class="tok-n">alt</span><span class="tok-w"> </span><span class="tok-o">/</span><span class="tok-w"> </span><span class="tok-mi">2</span><span class="tok-p">;</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-n">l2</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-n">alt</span><span class="tok-w"> </span><span class="tok-o">/</span><span class="tok-w"> </span><span class="tok-mi">2</span><span class="tok-p">;</span><span class="tok-w"></span>
+
+<span class="tok-w">    </span><span class="tok-n">aplicar_Efeito</span><span class="tok-p">();</span><span class="tok-w"></span>
+<span class="tok-p">}</span><span class="tok-w"></span>
+
+<span class="tok-kt">void</span><span class="tok-w"> </span><span class="tok-nf">on_trackbar_decaimento</span><span class="tok-p">(</span><span class="tok-kt">int</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-kt">void</span><span class="tok-w"> </span><span class="tok-o">*</span><span class="tok-p">)</span><span class="tok-w"></span>
+<span class="tok-p">{</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-n">d</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-n">slider_decaimento</span><span class="tok-p">;</span><span class="tok-w"></span>
+
+<span class="tok-w">    </span><span class="tok-n">aplicar_Efeito</span><span class="tok-p">();</span><span class="tok-w"></span>
+<span class="tok-p">}</span><span class="tok-w"></span>
+
+<span class="tok-kt">void</span><span class="tok-w"> </span><span class="tok-nf">aplicar_Efeito</span><span class="tok-p">()</span><span class="tok-w"></span>
+<span class="tok-p">{</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-n">Mat</span><span class="tok-w"> </span><span class="tok-n">ponderada</span><span class="tok-p">(</span><span class="tok-n">altura</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">largura</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">CV_32FC3</span><span class="tok-p">);</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-n">Mat</span><span class="tok-w"> </span><span class="tok-n">ponderada_negativa</span><span class="tok-p">(</span><span class="tok-n">altura</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">largura</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">CV_32FC3</span><span class="tok-p">);</span><span class="tok-w"></span>
+
+<span class="tok-w">    </span><span class="tok-n">cout</span><span class="tok-w"> </span><span class="tok-o">&lt;&lt;</span><span class="tok-w"> </span><span class="tok-s">&quot;centro: &quot;</span><span class="tok-w"> </span><span class="tok-o">&lt;&lt;</span><span class="tok-w"> </span><span class="tok-n">centro</span><span class="tok-w"> </span><span class="tok-o">&lt;&lt;</span><span class="tok-w"> </span><span class="tok-s">&quot;, l1: &quot;</span><span class="tok-w"> </span><span class="tok-o">&lt;&lt;</span><span class="tok-w"> </span><span class="tok-n">l1</span><span class="tok-w"> </span><span class="tok-o">&lt;&lt;</span><span class="tok-w"> </span><span class="tok-s">&quot;, l2: &quot;</span><span class="tok-w"> </span><span class="tok-o">&lt;&lt;</span><span class="tok-w"> </span><span class="tok-n">l2</span><span class="tok-w"> </span><span class="tok-o">&lt;&lt;</span><span class="tok-w"> </span><span class="tok-s">&quot;, decaimento: &quot;</span><span class="tok-w"> </span><span class="tok-o">&lt;&lt;</span><span class="tok-w"> </span><span class="tok-n">d</span><span class="tok-w"> </span><span class="tok-o">&lt;&lt;</span><span class="tok-w"> </span><span class="tok-n">endl</span><span class="tok-p">;</span><span class="tok-w"></span>
+
+<span class="tok-w">    </span><span class="tok-k">for</span><span class="tok-w"> </span><span class="tok-p">(</span><span class="tok-kt">int</span><span class="tok-w"> </span><span class="tok-n">i</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-mi">0</span><span class="tok-p">;</span><span class="tok-w"> </span><span class="tok-n">i</span><span class="tok-w"> </span><span class="tok-o">&lt;</span><span class="tok-w"> </span><span class="tok-n">altura</span><span class="tok-p">;</span><span class="tok-w"> </span><span class="tok-n">i</span><span class="tok-o">++</span><span class="tok-p">)</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-p">{</span><span class="tok-w"></span>
+<span class="tok-w">        </span><span class="tok-kt">float</span><span class="tok-w"> </span><span class="tok-n">fx</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-mf">0.0</span><span class="tok-p">;</span><span class="tok-w"></span>
+<span class="tok-w">        </span><span class="tok-c1">// Como a função não é definida para d = 0, caso isso ocorra, é atribuido um valor</span>
+<span class="tok-w">        </span><span class="tok-c1">// pequeno para d (d=0.01), o que deixa a transição entre 0 e 1 quase abrupta</span>
+<span class="tok-w">        </span><span class="tok-k">if</span><span class="tok-w"> </span><span class="tok-p">(</span><span class="tok-n">d</span><span class="tok-w"> </span><span class="tok-o">!=</span><span class="tok-w"> </span><span class="tok-mi">0</span><span class="tok-p">)</span><span class="tok-w"></span>
+<span class="tok-w">        </span><span class="tok-p">{</span><span class="tok-w"></span>
+<span class="tok-w">            </span><span class="tok-c1">// função utilizada para ponderar as imagens</span>
+<span class="tok-w">            </span><span class="tok-n">fx</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-mf">-0.5</span><span class="tok-w"> </span><span class="tok-o">*</span><span class="tok-w"> </span><span class="tok-p">(</span><span class="tok-n">tanh</span><span class="tok-p">((</span><span class="tok-n">i</span><span class="tok-w"> </span><span class="tok-o">-</span><span class="tok-w"> </span><span class="tok-n">centro</span><span class="tok-w"> </span><span class="tok-o">+</span><span class="tok-w"> </span><span class="tok-n">l1</span><span class="tok-p">)</span><span class="tok-w"> </span><span class="tok-o">/</span><span class="tok-w"> </span><span class="tok-n">d</span><span class="tok-p">)</span><span class="tok-w"> </span><span class="tok-o">-</span><span class="tok-w"> </span><span class="tok-n">tanh</span><span class="tok-p">((</span><span class="tok-n">i</span><span class="tok-w"> </span><span class="tok-o">-</span><span class="tok-w"> </span><span class="tok-n">centro</span><span class="tok-w"> </span><span class="tok-o">+</span><span class="tok-w"> </span><span class="tok-n">l2</span><span class="tok-p">)</span><span class="tok-w"> </span><span class="tok-o">/</span><span class="tok-w"> </span><span class="tok-n">d</span><span class="tok-p">));</span><span class="tok-w"></span>
+<span class="tok-w">        </span><span class="tok-p">}</span><span class="tok-w"></span>
+<span class="tok-w">        </span><span class="tok-k">else</span><span class="tok-w"></span>
+<span class="tok-w">        </span><span class="tok-p">{</span><span class="tok-w"></span>
+<span class="tok-w">            </span><span class="tok-n">fx</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-mf">-0.5</span><span class="tok-w"> </span><span class="tok-o">*</span><span class="tok-w"> </span><span class="tok-p">(</span><span class="tok-n">tanh</span><span class="tok-p">((</span><span class="tok-n">i</span><span class="tok-w"> </span><span class="tok-o">-</span><span class="tok-w"> </span><span class="tok-n">centro</span><span class="tok-w"> </span><span class="tok-o">+</span><span class="tok-w"> </span><span class="tok-n">l1</span><span class="tok-p">)</span><span class="tok-w"> </span><span class="tok-o">/</span><span class="tok-w"> </span><span class="tok-mf">0.01</span><span class="tok-p">)</span><span class="tok-w"> </span><span class="tok-o">-</span><span class="tok-w"> </span><span class="tok-n">tanh</span><span class="tok-p">((</span><span class="tok-n">i</span><span class="tok-w"> </span><span class="tok-o">-</span><span class="tok-w"> </span><span class="tok-n">centro</span><span class="tok-w"> </span><span class="tok-o">+</span><span class="tok-w"> </span><span class="tok-n">l2</span><span class="tok-p">)</span><span class="tok-w"> </span><span class="tok-o">/</span><span class="tok-w"> </span><span class="tok-mf">0.01</span><span class="tok-p">));</span><span class="tok-w"></span>
+<span class="tok-w">        </span><span class="tok-p">}</span><span class="tok-w"></span>
+
+<span class="tok-w">        </span><span class="tok-c1">// O tilt shift é aplicado em cada camada da imagem RGB</span>
+<span class="tok-w">        </span><span class="tok-k">for</span><span class="tok-w"> </span><span class="tok-p">(</span><span class="tok-kt">int</span><span class="tok-w"> </span><span class="tok-n">j</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-mi">0</span><span class="tok-p">;</span><span class="tok-w"> </span><span class="tok-n">j</span><span class="tok-w"> </span><span class="tok-o">&lt;</span><span class="tok-w"> </span><span class="tok-n">largura</span><span class="tok-p">;</span><span class="tok-w"> </span><span class="tok-n">j</span><span class="tok-o">++</span><span class="tok-p">)</span><span class="tok-w"></span>
+<span class="tok-w">        </span><span class="tok-p">{</span><span class="tok-w"></span>
+<span class="tok-w">            </span><span class="tok-n">ponderada</span><span class="tok-p">.</span><span class="tok-n">at</span><span class="tok-o">&lt;</span><span class="tok-n">Vec3f</span><span class="tok-o">&gt;</span><span class="tok-p">(</span><span class="tok-n">i</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">j</span><span class="tok-p">)[</span><span class="tok-mi">0</span><span class="tok-p">]</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-n">fx</span><span class="tok-p">;</span><span class="tok-w"></span>
+<span class="tok-w">            </span><span class="tok-n">ponderada</span><span class="tok-p">.</span><span class="tok-n">at</span><span class="tok-o">&lt;</span><span class="tok-n">Vec3f</span><span class="tok-o">&gt;</span><span class="tok-p">(</span><span class="tok-n">i</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">j</span><span class="tok-p">)[</span><span class="tok-mi">1</span><span class="tok-p">]</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-n">fx</span><span class="tok-p">;</span><span class="tok-w"></span>
+<span class="tok-w">            </span><span class="tok-n">ponderada</span><span class="tok-p">.</span><span class="tok-n">at</span><span class="tok-o">&lt;</span><span class="tok-n">Vec3f</span><span class="tok-o">&gt;</span><span class="tok-p">(</span><span class="tok-n">i</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">j</span><span class="tok-p">)[</span><span class="tok-mi">2</span><span class="tok-p">]</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-n">fx</span><span class="tok-p">;</span><span class="tok-w"></span>
+<span class="tok-w">            </span><span class="tok-n">ponderada_negativa</span><span class="tok-p">.</span><span class="tok-n">at</span><span class="tok-o">&lt;</span><span class="tok-n">Vec3f</span><span class="tok-o">&gt;</span><span class="tok-p">(</span><span class="tok-n">i</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">j</span><span class="tok-p">)[</span><span class="tok-mi">0</span><span class="tok-p">]</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-mf">1.0</span><span class="tok-w"> </span><span class="tok-o">-</span><span class="tok-w"> </span><span class="tok-n">fx</span><span class="tok-p">;</span><span class="tok-w"></span>
+<span class="tok-w">            </span><span class="tok-n">ponderada_negativa</span><span class="tok-p">.</span><span class="tok-n">at</span><span class="tok-o">&lt;</span><span class="tok-n">Vec3f</span><span class="tok-o">&gt;</span><span class="tok-p">(</span><span class="tok-n">i</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">j</span><span class="tok-p">)[</span><span class="tok-mi">1</span><span class="tok-p">]</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-mf">1.0</span><span class="tok-w"> </span><span class="tok-o">-</span><span class="tok-w"> </span><span class="tok-n">fx</span><span class="tok-p">;</span><span class="tok-w"></span>
+<span class="tok-w">            </span><span class="tok-n">ponderada_negativa</span><span class="tok-p">.</span><span class="tok-n">at</span><span class="tok-o">&lt;</span><span class="tok-n">Vec3f</span><span class="tok-o">&gt;</span><span class="tok-p">(</span><span class="tok-n">i</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">j</span><span class="tok-p">)[</span><span class="tok-mi">2</span><span class="tok-p">]</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-mf">1.0</span><span class="tok-w"> </span><span class="tok-o">-</span><span class="tok-w"> </span><span class="tok-n">fx</span><span class="tok-p">;</span><span class="tok-w"></span>
+<span class="tok-w">        </span><span class="tok-p">}</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-p">}</span><span class="tok-w"></span>
+
+<span class="tok-w">    </span><span class="tok-n">Mat</span><span class="tok-w"> </span><span class="tok-n">resultado</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">res1</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">res2</span><span class="tok-p">;</span><span class="tok-w"></span>
+
+<span class="tok-w">    </span><span class="tok-c1">// Cada imagem é multiplicada por sua respectiva matriz ponderada</span>
+<span class="tok-w">    </span><span class="tok-n">multiply</span><span class="tok-p">(</span><span class="tok-n">imagem</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">ponderada</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">res1</span><span class="tok-p">);</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-n">multiply</span><span class="tok-p">(</span><span class="tok-n">imagem_borrada</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">ponderada_negativa</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">res2</span><span class="tok-p">);</span><span class="tok-w"></span>
+
+<span class="tok-w">    </span><span class="tok-c1">// As matrizes ponderadas são somadas</span>
+<span class="tok-w">    </span><span class="tok-n">addWeighted</span><span class="tok-p">(</span><span class="tok-n">res1</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-mi">1</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">res2</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-mi">1</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-mi">0</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">resultado</span><span class="tok-p">);</span><span class="tok-w"></span>
+
+<span class="tok-w">    </span><span class="tok-n">resultado</span><span class="tok-p">.</span><span class="tok-n">convertTo</span><span class="tok-p">(</span><span class="tok-n">resultado</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">CV_8UC3</span><span class="tok-p">);</span><span class="tok-w"></span>
+<span class="tok-w">    </span>
+<span class="tok-w">    </span><span class="tok-n">imshow</span><span class="tok-p">(</span><span class="tok-s">&quot;tiltshift&quot;</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">resultado</span><span class="tok-p">);</span><span class="tok-w"></span>
+<span class="tok-p">}</span><span class="tok-w"></span>
+
+<span class="tok-kt">int</span><span class="tok-w"> </span><span class="tok-nf">main</span><span class="tok-p">(</span><span class="tok-kt">int</span><span class="tok-w"> </span><span class="tok-n">argvc</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-kt">char</span><span class="tok-w"> </span><span class="tok-o">**</span><span class="tok-n">argv</span><span class="tok-p">)</span><span class="tok-w"></span>
+<span class="tok-p">{</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-c1">// A másca de média, para borramento, é criada</span>
+<span class="tok-w">    </span><span class="tok-kt">float</span><span class="tok-w"> </span><span class="tok-n">media</span><span class="tok-p">[</span><span class="tok-n">matriz_media_tam</span><span class="tok-w"> </span><span class="tok-o">*</span><span class="tok-w"> </span><span class="tok-n">matriz_media_tam</span><span class="tok-p">];</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-k">for</span><span class="tok-w"> </span><span class="tok-p">(</span><span class="tok-kt">int</span><span class="tok-w"> </span><span class="tok-n">i</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-mi">0</span><span class="tok-p">;</span><span class="tok-w"> </span><span class="tok-n">i</span><span class="tok-w"> </span><span class="tok-o">&lt;</span><span class="tok-w"> </span><span class="tok-n">matriz_media_tam</span><span class="tok-p">;</span><span class="tok-w"> </span><span class="tok-n">i</span><span class="tok-o">++</span><span class="tok-p">)</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-p">{</span><span class="tok-w"></span>
+<span class="tok-w">        </span><span class="tok-k">for</span><span class="tok-w"> </span><span class="tok-p">(</span><span class="tok-kt">int</span><span class="tok-w"> </span><span class="tok-n">j</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-mi">0</span><span class="tok-p">;</span><span class="tok-w"> </span><span class="tok-n">j</span><span class="tok-w"> </span><span class="tok-o">&lt;</span><span class="tok-w"> </span><span class="tok-n">matriz_media_tam</span><span class="tok-p">;</span><span class="tok-w"> </span><span class="tok-n">j</span><span class="tok-o">++</span><span class="tok-p">)</span><span class="tok-w"></span>
+<span class="tok-w">        </span><span class="tok-p">{</span><span class="tok-w"></span>
+<span class="tok-w">            </span><span class="tok-n">media</span><span class="tok-p">[</span><span class="tok-n">i</span><span class="tok-w"> </span><span class="tok-o">*</span><span class="tok-w"> </span><span class="tok-n">matriz_media_tam</span><span class="tok-w"> </span><span class="tok-o">+</span><span class="tok-w"> </span><span class="tok-n">j</span><span class="tok-p">]</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-mf">1.0</span><span class="tok-w"> </span><span class="tok-o">/</span><span class="tok-w"> </span><span class="tok-p">(</span><span class="tok-n">matriz_media_tam</span><span class="tok-w"> </span><span class="tok-o">*</span><span class="tok-w"> </span><span class="tok-n">matriz_media_tam</span><span class="tok-p">);</span><span class="tok-w"></span>
+<span class="tok-w">        </span><span class="tok-p">}</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-p">}</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-n">Mat</span><span class="tok-w"> </span><span class="tok-n">masc_media</span><span class="tok-p">(</span><span class="tok-n">matriz_media_tam</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">matriz_media_tam</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">CV_32F</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">media</span><span class="tok-p">);</span><span class="tok-w"></span>
+
+<span class="tok-w">    </span><span class="tok-n">vector</span><span class="tok-o">&lt;</span><span class="tok-n">Mat</span><span class="tok-o">&gt;</span><span class="tok-w"> </span><span class="tok-n">canais</span><span class="tok-p">;</span><span class="tok-w"></span>
+
+<span class="tok-w">    </span><span class="tok-n">imagem</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-n">imread</span><span class="tok-p">(</span><span class="tok-n">argv</span><span class="tok-p">[</span><span class="tok-mi">1</span><span class="tok-p">]);</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-n">imagem</span><span class="tok-p">.</span><span class="tok-n">convertTo</span><span class="tok-p">(</span><span class="tok-n">imagem</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">CV_32FC3</span><span class="tok-p">);</span><span class="tok-w"></span>
+
+<span class="tok-w">    </span><span class="tok-c1">// O filtro do borramento é aplicado em cada canal separadamente</span>
+<span class="tok-w">    </span><span class="tok-n">split</span><span class="tok-p">(</span><span class="tok-n">imagem</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">canais</span><span class="tok-p">);</span><span class="tok-w"></span>
+
+<span class="tok-w">    </span><span class="tok-n">filter2D</span><span class="tok-p">(</span><span class="tok-n">canais</span><span class="tok-p">[</span><span class="tok-mi">0</span><span class="tok-p">],</span><span class="tok-w"> </span><span class="tok-n">canais</span><span class="tok-p">[</span><span class="tok-mi">0</span><span class="tok-p">],</span><span class="tok-w"> </span><span class="tok-n">canais</span><span class="tok-p">[</span><span class="tok-mi">0</span><span class="tok-p">].</span><span class="tok-n">depth</span><span class="tok-p">(),</span><span class="tok-w"> </span><span class="tok-n">masc_media</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">Point</span><span class="tok-p">(</span><span class="tok-mi">3</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-mi">3</span><span class="tok-p">),</span><span class="tok-w"> </span><span class="tok-mi">0</span><span class="tok-p">);</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-n">filter2D</span><span class="tok-p">(</span><span class="tok-n">canais</span><span class="tok-p">[</span><span class="tok-mi">1</span><span class="tok-p">],</span><span class="tok-w"> </span><span class="tok-n">canais</span><span class="tok-p">[</span><span class="tok-mi">1</span><span class="tok-p">],</span><span class="tok-w"> </span><span class="tok-n">canais</span><span class="tok-p">[</span><span class="tok-mi">1</span><span class="tok-p">].</span><span class="tok-n">depth</span><span class="tok-p">(),</span><span class="tok-w"> </span><span class="tok-n">masc_media</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">Point</span><span class="tok-p">(</span><span class="tok-mi">3</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-mi">3</span><span class="tok-p">),</span><span class="tok-w"> </span><span class="tok-mi">0</span><span class="tok-p">);</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-n">filter2D</span><span class="tok-p">(</span><span class="tok-n">canais</span><span class="tok-p">[</span><span class="tok-mi">2</span><span class="tok-p">],</span><span class="tok-w"> </span><span class="tok-n">canais</span><span class="tok-p">[</span><span class="tok-mi">2</span><span class="tok-p">],</span><span class="tok-w"> </span><span class="tok-n">canais</span><span class="tok-p">[</span><span class="tok-mi">2</span><span class="tok-p">].</span><span class="tok-n">depth</span><span class="tok-p">(),</span><span class="tok-w"> </span><span class="tok-n">masc_media</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">Point</span><span class="tok-p">(</span><span class="tok-mi">3</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-mi">3</span><span class="tok-p">),</span><span class="tok-w"> </span><span class="tok-mi">0</span><span class="tok-p">);</span><span class="tok-w"></span>
+
+<span class="tok-w">    </span><span class="tok-n">merge</span><span class="tok-p">(</span><span class="tok-n">canais</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">imagem_borrada</span><span class="tok-p">);</span><span class="tok-w"></span>
+
+<span class="tok-w">    </span><span class="tok-n">largura</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-n">imagem</span><span class="tok-p">.</span><span class="tok-n">cols</span><span class="tok-p">;</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-n">altura</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-n">imagem</span><span class="tok-p">.</span><span class="tok-n">rows</span><span class="tok-p">;</span><span class="tok-w"></span>
+
+<span class="tok-w">    </span><span class="tok-c1">// namedWindow(&quot;tiltshift&quot;, 1);</span>
+<span class="tok-w">    </span><span class="tok-n">cv</span><span class="tok-o">::</span><span class="tok-n">namedWindow</span><span class="tok-p">(</span><span class="tok-s">&quot;tiltshift&quot;</span><span class="tok-p">,</span><span class="tok-n">cv</span><span class="tok-o">::</span><span class="tok-n">WINDOW_NORMAL</span><span class="tok-p">);</span><span class="tok-w"></span>
+
+<span class="tok-w">    </span><span class="tok-c1">// Criando os sliders</span>
+<span class="tok-w">    </span><span class="tok-n">sprintf</span><span class="tok-p">(</span><span class="tok-n">TrackbarName</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-s">&quot;Altura x %d&quot;</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">slider_altura_max</span><span class="tok-p">);</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-n">createTrackbar</span><span class="tok-p">(</span><span class="tok-n">TrackbarName</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-s">&quot;tiltshift&quot;</span><span class="tok-p">,</span><span class="tok-w"></span>
+<span class="tok-w">                   </span><span class="tok-o">&amp;</span><span class="tok-n">slider_altura</span><span class="tok-p">,</span><span class="tok-w"></span>
+<span class="tok-w">                   </span><span class="tok-n">slider_altura_max</span><span class="tok-p">,</span><span class="tok-w"></span>
+<span class="tok-w">                   </span><span class="tok-n">on_trackbar_altura</span><span class="tok-p">);</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-n">on_trackbar_altura</span><span class="tok-p">(</span><span class="tok-n">slider_altura</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-mi">0</span><span class="tok-p">);</span><span class="tok-w"></span>
+
+<span class="tok-w">    </span><span class="tok-n">sprintf</span><span class="tok-p">(</span><span class="tok-n">TrackbarName</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-s">&quot;Decaimento x %d&quot;</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">slider_decaimento_max</span><span class="tok-p">);</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-n">createTrackbar</span><span class="tok-p">(</span><span class="tok-n">TrackbarName</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-s">&quot;tiltshift&quot;</span><span class="tok-p">,</span><span class="tok-w"></span>
+<span class="tok-w">                   </span><span class="tok-o">&amp;</span><span class="tok-n">slider_decaimento</span><span class="tok-p">,</span><span class="tok-w"></span>
+<span class="tok-w">                   </span><span class="tok-n">slider_decaimento_max</span><span class="tok-p">,</span><span class="tok-w"></span>
+<span class="tok-w">                   </span><span class="tok-n">on_trackbar_decaimento</span><span class="tok-p">);</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-n">on_trackbar_decaimento</span><span class="tok-p">(</span><span class="tok-n">slider_decaimento</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-mi">0</span><span class="tok-p">);</span><span class="tok-w"></span>
+
+<span class="tok-w">    </span><span class="tok-n">sprintf</span><span class="tok-p">(</span><span class="tok-n">TrackbarName</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-s">&quot;Deslocamento x %d&quot;</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">slider_deslocamento_max</span><span class="tok-p">);</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-n">createTrackbar</span><span class="tok-p">(</span><span class="tok-n">TrackbarName</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-s">&quot;tiltshift&quot;</span><span class="tok-p">,</span><span class="tok-w"></span>
+<span class="tok-w">                   </span><span class="tok-o">&amp;</span><span class="tok-n">slider_deslocamento</span><span class="tok-p">,</span><span class="tok-w"></span>
+<span class="tok-w">                   </span><span class="tok-n">slider_deslocamento_max</span><span class="tok-p">,</span><span class="tok-w"></span>
+<span class="tok-w">                   </span><span class="tok-n">on_trackbar_deslocamento</span><span class="tok-p">);</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-n">on_trackbar_deslocamento</span><span class="tok-p">(</span><span class="tok-n">slider_deslocamento</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-mi">0</span><span class="tok-p">);</span><span class="tok-w"></span>
+
+<span class="tok-w">    </span><span class="tok-n">aplicar_Efeito</span><span class="tok-p">();</span><span class="tok-w"></span>
+
+<span class="tok-w">    </span><span class="tok-n">waitKey</span><span class="tok-p">(</span><span class="tok-mi">0</span><span class="tok-p">);</span><span class="tok-w"></span>
+<span class="tok-w">    </span><span class="tok-k">return</span><span class="tok-w"> </span><span class="tok-mi">0</span><span class="tok-p">;</span><span class="tok-w"></span>
+<span class="tok-p">}</span><span class="tok-w"></span></code></pre>
+</div>
+</div>
+<div id="img-tilted" class="imageblock">
+<div class="content">
+<img src="imagens/mads-sonne-WZfvMEVl4XA-unsplash_tiltshift.png" alt="Resultado">
+</div>
+<div class="title">Figure 7. Imagem resultante da aplicação do tiltshift.</div>
+</div>
+<div class="paragraph">
+<p>Imagem original disponível em: <a href="https://unsplash.com/photos/WZfvMEVl4XA" class="bare">https://unsplash.com/photos/WZfvMEVl4XA</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_exercicio_tiltshiftvideo">7.2. Exercicio <strong><em>tiltshiftvideo</em></strong></h3>
 
 </div>
 <div class="sect2">
-<h3 id="_exercicio_tiltshift">7.2. Exercicio <strong><em>tiltshift</em></strong></h3>
-
-</div>
-<div class="sect2">
-<h3 id="_em_construção_3">7.3. Em construção.</h3>
-
-</div>
-<div class="sect2">
-<h3 id="_exercicio_tiltshiftvideo">7.4. Exercicio <strong><em>tiltshiftvideo</em></strong></h3>
-
-</div>
-<div class="sect2">
-<h3 id="_em_construção_4">7.5. Em construção.</h3>
+<h3 id="_em_construção_2">7.3. Em construção.</h3>
 
 </div>
 </div>
@@ -1827,7 +1998,7 @@ O resultado do algorítmo pode ser visto abaixo.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-12-21 07:58:02 -0300
+Last updated 2022-12-21 08:36:14 -0300
 </div>
 </div>
 <script type="text/x-mathjax-config">

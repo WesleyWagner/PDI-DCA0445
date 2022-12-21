@@ -149,11 +149,24 @@ Nota-se que ao aplicar o laplaciano no filtro gaussiano, as bordas são menos ev
 
 == Filtragem no domínio espacial II ==
 
-=== Em construção. ===
+Nesta seção será apresentada a experiÊncia do efeito tilt-shift usando técnicas de processamento digital de imagens.
 
 === Exercicio *_tiltshift_* ===
 
-=== Em construção. ===
+Usando o programa *_addweighted.cpp_* como referência, foi implmementado um programa para a realizar o tilt-shift em uma imagem colorida.
+
+Abaixo, tem-se o código da implementação e uma imagem da execução da aplicação.
+
+[source,cpp]
+
+----
+include::programas/tiltshift.cpp[]
+----
+
+[#img-tilted]
+.Imagem resultante da aplicação do tiltshift.
+image::mads-sonne-WZfvMEVl4XA-unsplash_tiltshift.png[Resultado]
+Imagem original disponível em: <https://unsplash.com/photos/WZfvMEVl4XA>
 
 === Exercicio *_tiltshiftvideo_* ===
 
