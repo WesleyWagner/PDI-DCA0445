@@ -319,18 +319,18 @@ A ordem utilizada para realizar a filtragem foi:
 
 * Dilatação (Remover excesso vertical).
 
-A figura que ilustra esse passo a passo pode ser vista a seguir.
-
-[#img-morfologia_digito3]
-.Todas as operações morfológicas realizadas.
-image::saida_combinada3.png[Resultado]
-
 A imagem original pode ser verificada a seguir.
 [#img-morfologia_original]
 .Imagem inicial.
 image::download.png[Resultado]
 
 Através da saída das imagens combinadas do programa, obtem-se a verificação de cada operação morfológica sendo realizada na imagem original do display. A primeira posição da esquerda representa a imagem original, imediatamente a direita e respectivamente temos as demais imagens para as operações de: Erosão, Abertura->Fechamento, Dilatação.
+
+A figura que ilustra esse passo a passo pode ser vista a seguir.
+
+[#img-morfologia_digito3]
+.Todas as operações morfológicas realizadas.
+image::saida_combinada3.png[Resultado]
 
 Foram utilizados os seguintes elementos estruturantes.
 
