@@ -568,6 +568,11 @@ pre.pygments .tok-il { color: #666666 } /* Literal.Number.Integer.Long */
 <li><a href="#_exercicio_kmeans">10.1. Exercicio <strong><em>kmeans</em></strong></a></li>
 </ul>
 </li>
+<li><a href="#_filtragem_de_forma_com_morfologia_matemática">11. Filtragem de forma com morfologia matemática</a>
+<ul class="sectlevel2">
+<li><a href="#_exercicio_filtros_morfológicos">11.1. Exercicio <strong><em>Filtros Morfológicos</em></strong></a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -1821,7 +1826,7 @@ O resultado do algorítmo pode ser visto abaixo.</p>
 <h2 id="_filtragem_no_domínio_espacial_ii">6. Filtragem no domínio espacial II</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Nesta seção será apresentada a experiência do efeito tilt-shift usando técnicas de processamento digital de imagens.</p>
+<p>Nesta seção será apresentado o efeito tilt-shift usando técnicas de processamento digital de imagens.</p>
 </div>
 <div class="sect2">
 <h3 id="_exercicio_tiltshift">6.1. Exercicio <strong><em>tiltshift</em></strong></h3>
@@ -2250,7 +2255,7 @@ O resultado do algorítmo pode ser visto abaixo.</p>
 <h2 id="_filtragem_no_domínio_da_frequência">8. Filtragem no Domínio da Frequência</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Nesta seção será apresentada a experiência da aplicação do filtro homomórfico em uma cena em tons de cinza mal iluminada.</p>
+<p>Nesta seção será apresentada a aplicação do filtro homomórfico em uma cena em tons de cinza mal iluminada.</p>
 </div>
 <div class="sect2">
 <h3 id="_exercício_filtro_homomórfico">8.1. Exercício Filtro homomórfico</h3>
@@ -2539,7 +2544,7 @@ O resultado do algorítmo pode ser visto abaixo.</p>
 <h2 id="_detecção_de_bordas_com_o_algoritmo_de_canny">9. Detecção de bordas com o algoritmo de Canny</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Nesta seção será apresentada a experiência da aplicação do algoritmo <em>Canny</em> de detecção de bordas.</p>
+<p>Nesta seção será apresentada a aplicação do algoritmo <em>Canny</em> para detecção de bordas.</p>
 </div>
 <div class="sect2">
 <h3 id="_exercício_pointilismo">9.1. Exercício Pointilismo</h3>
@@ -2808,10 +2813,89 @@ O resultado do algorítmo pode ser visto abaixo.</p>
 </div>
 </div>
 </div>
+<div class="sect1">
+<h2 id="_filtragem_de_forma_com_morfologia_matemática">11. Filtragem de forma com morfologia matemática</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Nesta seção será apresentada a resolução desenvolvida para o pré-processamento de imagens provenientes de um display de segmentos de uma aplicação industrial.
+Um sistema de captura de imagens precisa realizar o reconhecimento de carateres de um visor de segmentos para uma aplicação industrial.</p>
+</div>
+<div class="sect2">
+<h3 id="_exercicio_filtros_morfológicos">11.1. Exercicio <strong><em>Filtros Morfológicos</em></strong></h3>
+<div class="paragraph">
+<p>A resolução baseia-se na na agregação dos segmentos que compõem a informação numérica da imagem. Tal solução foi baseada na utilização de filtros morfológicos.</p>
+</div>
+<div class="paragraph">
+<p>A ordem utilizada para realizar a filtragem foi:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Erosão (Aumentar o preenchimento no sentido vertical).</p>
+</li>
+<li>
+<p>Abertura&#8594;Fechamento (Realizar a conexão).</p>
+</li>
+<li>
+<p>Dilatação (Remover excesso vertical).</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>A figura que ilustra esse passo a passo pode ser vista a seguir.</p>
+</div>
+<div id="img-morfologia_digito3" class="imageblock">
+<div class="content">
+<img src="imagens/saida_combinada3.png" alt="Resultado">
+</div>
+<div class="title">Figure 10. Imagem inicial.</div>
+</div>
+<div class="paragraph">
+<p>A imagem original pode ser verificada a seguir.</p>
+</div>
+<div id="img-morfologia_original" class="imageblock">
+<div class="content">
+<img src="imagens/download.png" alt="Resultado">
+</div>
+<div class="title">Figure 11. Imagem inicial.</div>
+</div>
+<div class="paragraph">
+<p>Através da saída das imagens combinadas do programa, obtem-se a verificação de cada operação morfológica sendo realizada na imagem original do display. A primeira posição da esquerda representa a imagem original, imediatamente a direita e respectivamente temos as demais imagens para as operações de: Erosão, Abertura&#8594;Fechamento, Dilatação.</p>
+</div>
+<div class="paragraph">
+<p>Foram utilizados os seguintes elementos estruturantes.</p>
+</div>
+<div id="img-str1" class="imageblock">
+<div class="content">
+<img src="imagens/str1.png" alt="Resultado" width="64">
+</div>
+<div class="title">Figure 12. Primeiro elemento estruturamente (imagem ampliada).</div>
+</div>
+<div id="img-str2" class="imageblock">
+<div class="content">
+<img src="imagens/str2.png" alt="Resultado" width="64">
+</div>
+<div class="title">Figure 13. Segundo elemento estruturamente (imagem ampliada).</div>
+</div>
+<div class="paragraph">
+<p>O primeiro elemento estruturante foi utilizado nas duas primeiras operações morfológicas, enquanto que o segundo elemento estruturante foi utilizado apenas na ultima operação de dilatação.</p>
+</div>
+<div class="paragraph">
+<p>Por fim, o resultado final do pré-processamento obtido com o programa desenvolvido pode ser visualizado na figura a seguir.</p>
+</div>
+<div id="img-processado" class="imageblock">
+<div class="content">
+<img src="imagens/processado.png" alt="Resultado">
+</div>
+<div class="title">Figure 14. Resultado do programa ao ser aplicado a imagem completa dos digitos do display de segmentos.</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-12-21 19:37:37 -0300
+Last updated 2022-12-21 21:51:52 -0300
 </div>
 </div>
 <script type="text/x-mathjax-config">

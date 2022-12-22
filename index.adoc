@@ -149,7 +149,7 @@ Nota-se que ao aplicar o laplaciano no filtro gaussiano, as bordas são menos ev
 
 == Filtragem no domínio espacial II ==
 
-Nesta seção será apresentada a experiência do efeito tilt-shift usando técnicas de processamento digital de imagens.
+Nesta seção será apresentado o efeito tilt-shift usando técnicas de processamento digital de imagens.
 
 === Exercicio *_tiltshift_* ===
 
@@ -191,7 +191,7 @@ video::_bOYf0P-snE[youtube, 640,480]
 === Em construção ===
 
 == Filtragem no Domínio da Frequência ==
-Nesta seção será apresentada a experiência da aplicação do filtro homomórfico em uma cena em tons de cinza mal iluminada.
+Nesta seção será apresentada a aplicação do filtro homomórfico em uma cena em tons de cinza mal iluminada.
 
 === Exercício Filtro homomórfico ===
 Uma das condições para realizar a FFT é que a matriz que representa a imagem de possuir uma altura e largura em potência na base 2. Portanto, inicialmente realiza a adequação do tamanho da matriz, incluindo nos espaços adicionados o valor zero (zero padding). Posteriormente, efetua-se a operação de log nas componentes da imagem, ou seja, na parte real e complexa, com a devida cautela de somar 1 ao valor de magnitude para evitar situações com log(x=0).
@@ -218,7 +218,7 @@ Imagem original disponível em: <https://unsplash.com/photos/HHyKGVt0_E0>
 Valores utilizados na aplicação: gH = 8, gL=6, c=10, d0=15.
 
 == Detecção de bordas com o algoritmo de Canny ==
-Nesta seção será apresentada a experiência da aplicação do algoritmo _Canny_ de detecção de bordas.
+Nesta seção será apresentada a aplicação do algoritmo _Canny_ para detecção de bordas.
 
 === Exercício Pointilismo ===
 Utilizando o programa *_canny.cpp_* e *_pontilhismo.cpp_* como referência. Foi desenvolvido um algoritmo para gerar o efeito pontilhista em uma imagem fornecida através da chamada do programa. Utilizando o algoritmo de Canny, detectam-se as bordas presente na imagem para aumentar sua a qualidade da representação pointilista, considerando realizar o desenho de circulos menores, quanto maior for o destaque de tais bordas, com os círculos menores com *_6 pixels_* de raio em os maiores com raio de *_16 pixels_*. Os circulos menores são desenhados nas posições indicadas como borda pelo algoritmo de _Canny_.
@@ -263,6 +263,53 @@ video::2fuIpNRbgGY[youtube, 640,480]
 video::emw5PxdlJhA[youtube, 640,480]
 
 Através do vídeo resultante do programa, é possivel verificar que os agrupamentos dos centros são escolhidos de forma aleatória, e que esses pontos mudam a cada rodada, produzindo assim imagens diferentes.
+
+== Filtragem de forma com morfologia matemática ==
+Nesta seção será apresentada a resolução desenvolvida para o pré-processamento de imagens provenientes de um display de segmentos de uma aplicação industrial.
+Um sistema de captura de imagens precisa realizar o reconhecimento de carateres de um visor de segmentos para uma aplicação industrial.
+
+=== Exercicio *_Filtros Morfológicos_* ===
+A resolução baseia-se na na agregação dos segmentos que compõem a informação numérica da imagem. Tal solução foi baseada na utilização de filtros morfológicos.
+
+A ordem utilizada para realizar a filtragem foi:
+
+* Erosão (Aumentar o preenchimento no sentido vertical).
+
+* Abertura->Fechamento (Realizar a conexão).
+
+* Dilatação (Remover excesso vertical).
+
+A figura que ilustra esse passo a passo pode ser vista a seguir.
+
+[#img-morfologia_digito3]
+.Imagem inicial.
+image::saida_combinada3.png[Resultado]
+
+A imagem original pode ser verificada a seguir.
+[#img-morfologia_original]
+.Todas as operações morfológicas realizadas.
+image::download.png[Resultado]
+
+Através da saída das imagens combinadas do programa, obtem-se a verificação de cada operação morfológica sendo realizada na imagem original do display. A primeira posição da esquerda representa a imagem original, imediatamente a direita e respectivamente temos as demais imagens para as operações de: Erosão, Abertura->Fechamento, Dilatação.
+
+Foram utilizados os seguintes elementos estruturantes.
+
+[#img-str1]
+.Primeiro elemento estruturamente (imagem ampliada).
+image::str1.png[Resultado,64]
+
+[#img-str2]
+.Segundo elemento estruturamente (imagem ampliada).
+image::str2.png[Resultado,64]
+
+O primeiro elemento estruturante foi utilizado nas duas primeiras operações morfológicas, enquanto que o segundo elemento estruturante foi utilizado apenas na ultima operação de dilatação.
+
+Por fim, o resultado final do pré-processamento obtido com o programa desenvolvido pode ser visualizado na figura a seguir.
+[#img-processado]
+.Resultado do programa ao ser aplicado a imagem completa dos digitos do display de segmentos.
+image::processado.png[Resultado]
+
+
 
 
 :!sectnums:
