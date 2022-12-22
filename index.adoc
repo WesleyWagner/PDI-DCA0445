@@ -233,7 +233,7 @@ video::_bOYf0P-snE[youtube, 640,480]
 == Filtragem no Domínio da Frequência ==
 Nesta seção será apresentada a aplicação do filtro homomórfico em uma cena em tons de cinza mal iluminada.
 
-=== Exercício Filtro homomórfico ===
+=== Exercício *_Filtro homomórfico_* ===
 Uma das condições para realizar a FFT é que a matriz que representa a imagem de possuir uma altura e largura em potência na base 2. Portanto, inicialmente realiza a adequação do tamanho da matriz, incluindo nos espaços adicionados o valor zero (zero padding). Posteriormente, efetua-se a operação de log nas componentes da imagem, ou seja, na parte real e complexa, com a devida cautela de somar 1 ao valor de magnitude para evitar situações com log(x=0).
 
 Neste ponto, a transformada de Fourier é aplicada, com o devido deslocamento do espectro em movimentações diagonais. Por fim, a multiplicação ponto a ponto, responsável pela aplicação do filtro é desempenhada.
@@ -260,7 +260,7 @@ Valores utilizados na aplicação: gH = 8, gL=6, c=10, d0=15.
 == Detecção de bordas com o algoritmo de Canny ==
 Nesta seção será apresentada a aplicação do algoritmo _Canny_ para detecção de bordas.
 
-=== Exercício Pointilismo ===
+=== Exercício *_Pointilismo_* ===
 Utilizando o programa *_canny.cpp_* e *_pontilhismo.cpp_* como referência. Foi desenvolvido um algoritmo para gerar o efeito pontilhista em uma imagem fornecida através da chamada do programa. Utilizando o algoritmo de Canny, detectam-se as bordas presente na imagem para aumentar sua a qualidade da representação pointilista, considerando realizar o desenho de circulos menores, quanto maior for o destaque de tais bordas, com os círculos menores com *_6 pixels_* de raio em os maiores com raio de *_16 pixels_*. Os circulos menores são desenhados nas posições indicadas como borda pelo algoritmo de _Canny_.
 
 
@@ -348,8 +348,5 @@ Por fim, o resultado final do pré-processamento obtido com o programa desenvolv
 [#img-processado]
 .Resultado do programa ao ser aplicado a imagem completa dos digitos do display de segmentos.
 image::processado.png[Resultado]
-
-
-
 
 :!sectnums:
