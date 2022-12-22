@@ -52,7 +52,7 @@ Resultado do programa:
 
 [#img-helloOpencv]
 .Resultado da execução do programa hello.cpp
-image::bien_hello.png[Resultado]
+image::biel_hello.png[Resultado]
 
 
 == Manipulando pixels em uma imagem ==
