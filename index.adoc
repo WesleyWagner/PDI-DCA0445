@@ -355,4 +355,12 @@ Por fim, o resultado final do pré-processamento obtido com o programa desenvolv
 .Resultado do programa ao ser aplicado a imagem completa dos digitos do display de segmentos.
 image::processado.png[Resultado]
 
+Abaixo, tem-se o código fonte do programa desenvolvido.
+
+[source,cpp]
+
+----
+include::programas/morfologia.cpp[]
+----
+
 :!sectnums:
