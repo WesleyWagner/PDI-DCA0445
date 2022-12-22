@@ -7,6 +7,12 @@
 
 Wesley Wagner Varela Souza <wesley.souza.016@ufrn.edu.br>
 
+== LINKS PARA LISTAS DE EXERCÍCIOS ==
+
+https://drive.google.com/file/d/1H9Z49wqc6RQGrSG1xK6W577cq6HvnTAD/view?usp=sharing[LISTA UNIDADE II]
+
+https://drive.google.com/file/d/1Br4qgrqBqmFEEJqcJZA65PabgX3CSjZK/view?usp=sharing[LISTA UNIDADE III]
+
 == Introdução ==
 
 Este site destina-se a apresentar as soluções desenvolvidas para os exercícios propostos na disciplina de Processamento Digital de Imagens (PDI), ofertada no Departamento de Engenharia de Computação e Automação da UFRN e ministrado pelo professor Agostinho De Medeiros Brito Junior, cujo o material da disciplina de PDI se encontra disponível em <https://agostinhobritojr.github.io/tutorial/pdi/>.
@@ -14,6 +20,46 @@ Este site destina-se a apresentar as soluções desenvolvidas para os exercício
 Os exercícios apresentados a seguir foram desenvolvidos em C++, utilizando a biblioteca OpenCV <https://opencv.org/>.
 
 :sectnums:
+
+== Hello, OpenCV *_hello.cpp_* ==
+O ambiente dos códigos e programas desenvolvidas foram baseados no ambiente Linux.
+Para realizar a instalação do _Opencv_ basta abrir o terminal e inserir os seguintes comandos:
+
+[source,bash]
+.Terminal Linux
+----
+sudo apt update && sudo apt upgrade -y && sudo apt install libopencv-dev build-essential
+----
+
+[source,makefile]
+.Makefile
+----
+include::programas/Makefile[]
+----
+
+O ambiente de desenvolvimento poderá ser testado com *_hello.cpp_* , no qual apresenta na tela uma imagem fornecida via linha de comando. Lembrando que o arquivo Makefile deve estar na mesma pasta que o arquivo *_.cpp_* que se deseja compilar, bem como a imagem de teste.
+
+[source,cpp]
+.hello.cpp
+----
+include::programas/hello.cpp[]
+----
+
+Para executar o programa:
+
+[source,bash]
+.Terminal Linux
+----
+make hello
+./hello biel.png
+----
+
+Resultado do programa:
+
+[#img-helloOpencv]
+.Resultado da execução do programa hello.cpp
+image::biel_hello.png[Resultado]
+
 
 == Manipulando pixels em uma imagem ==
 
@@ -109,26 +155,212 @@ Apesar da equalização evidenciar os detalhes do vídeo original, especialmente
 
 === Exercício *_motiondetector_* ===
 
-==== Em construção. ====
+Utilizando o programa *_histogram.cpp_* como referência, foi desenvolvido um código que realiza a detecção de movimento utilizando uma média móvel entre os histogramas. O valor utilizado para determinar a detecção de movimento foi obtido experimentalmente, fixando um valor 15 como satisfatório para a aplicação. Os quadros são provenientes de um stream de vídeo utilizando o recurso de câmera virtual do software _Obs Studio_. Abaixo, tem-se o código da implementação e um vídeo demonstrativo da execução da aplicação.
+
+[source,cpp]
+
+----
+include::programas/motiondetect.cpp[]
+----
+
+O resultado da aplicação do algoritmo pode ser verificado abaixo.
+
+[#vid-motionYT]
+.Detecção de movimento de um vídeo
+
+video::K2K1d7GW6Jk[youtube, 640,480]
 
 == Filtragem no domínio espacial I ==
 
-=== Em construção. ===
+Nesta seção será utilizada a função filter2D para realizar a convolução digital entre uma imagem e uma máscara
 
-== Exercício *_laplgauss_* ==
+=== Exercício *_laplgauss_* ===
 
-=== Em construção. ===
+Usando o programa *_filtroespacial.cpp_* como referência, uma opção de aplicar o filtro laplaciano após aplicar um filtro gaussiano na imagem foi adicionado. A letra de seleção para aplicar este filtro é a *X*. A ativação da utilização sequencial do filtro _laplgauss_ é feita alterando uma variável do tipo _bool_, atribuindo-se o valor _true_ após pressionada a tecla *X*. Se qualquer outra opção de filtro for selecionada, ocorre uma atribuição _false_ nesta variavel, e consequentemente, aplicando apenas o filtro selecionado.
+
+Abaixo, tem-se o código da implementação e uma imagem da execução da aplicação.
+
+[source,cpp]
+
+----
+include::programas/laplgauss.cpp[]
+----
+
+[#img-laplgauss]
+.Imagem comparativa entre a saída do laplaciano - Esquerda | laplaciano do gaussiano - Direita.
+image::laplgauss_saida.png[Resultado]
+Imagem original disponível em: <https://unsplash.com/photos/YJUMir8ild4>
+
+Nota-se que ao aplicar o laplaciano no filtro gaussiano, as bordas são menos evidentes, pois com o gaussiano borra-se a imagem, deixando as bordas mais suaves. Como o laplaciano realça as bordas, e estando borradas, ocorre um destaque menos acentuado na tonalidade.
 
 == Filtragem no domínio espacial II ==
 
-=== Em construção. ===
+Nesta seção será apresentado o efeito tilt-shift usando técnicas de processamento digital de imagens.
 
 === Exercicio *_tiltshift_* ===
 
-=== Em construção. ===
+Usando o programa *_addweighted.cpp_* como referência, foi implmementado um programa para a realizar o tilt-shift em uma imagem colorida.
+
+Abaixo, tem-se o código da implementação e uma imagem da execução da aplicação.
+
+[source,cpp]
+
+----
+include::programas/tiltshift.cpp[]
+----
+
+[#img-tilted]
+.Imagem resultante da aplicação do tiltshift.
+image::mads-sonne-WZfvMEVl4XA-unsplash_tiltshift.png[Resultado]
+Imagem original disponível em: <https://unsplash.com/photos/WZfvMEVl4XA>
 
 === Exercicio *_tiltshiftvideo_* ===
 
-=== Em construção. ===
+Utilizando o programa *_tiltshift.cpp_* como referência, foi desenvolvido um código que realiza a aplicação da técnica de tiltshift em um vídeo. O programa recebe um streaming de vídeo utilizando o recurso de câmera virtual do software _Obs Studio_, e assim como no programa anterior, utiliza-se as _trackbars_ para ajustar o comportamento desejado para o _tiltshift_. Ao finalizar o ajuste, pressiona-se a tecla *_"R"_* para iniciar a gravação do vídeo. A gravação é encerrada ao fechar a execução do programa. Além do efeito _tiltshift_, foi implementado o efeito _stopmotion_, de maneira sistemática considerando o descarte de 2 frames e a coleta do terceiro da sequência. Abaixo, tem-se o código da implementação e um vídeo demonstrativo da execução da aplicação.
+
+[source,cpp]
+
+----
+include::programas/tiltshiftVideo.cpp[]
+----
+
+O resultado da aplicação do algoritmo pode ser verificado abaixo.
+
+[#vid-tiltshiftYT]
+.Tiltshift em Video
+
+video::_bOYf0P-snE[youtube, 640,480]
+
+
+== A Tranformada Discreta de Fourier ==
+
+=== Em construção ===
+
+== Filtragem no Domínio da Frequência ==
+Nesta seção será apresentada a aplicação do filtro homomórfico em uma cena em tons de cinza mal iluminada.
+
+=== Exercício *_Filtro homomórfico_* ===
+Uma das condições para realizar a FFT é que a matriz que representa a imagem de possuir uma altura e largura em potência na base 2. Portanto, inicialmente realiza a adequação do tamanho da matriz, incluindo nos espaços adicionados o valor zero (zero padding). Posteriormente, efetua-se a operação de log nas componentes da imagem, ou seja, na parte real e complexa, com a devida cautela de somar 1 ao valor de magnitude para evitar situações com log(x=0).
+
+Neste ponto, a transformada de Fourier é aplicada, com o devido deslocamento do espectro em movimentações diagonais. Por fim, a multiplicação ponto a ponto, responsável pela aplicação do filtro é desempenhada.
+
+Finalmente, toma-se a transformada inversa, efetua-se a exponenciação (operação inversa a operação logaritmica efetuada anteriormente), e posteriormente realiza-se uma normalização para exibir a imagem filtrada.
+
+Nesta implementação a variação dos parâmetros é efetuada através de _"trackbars"_.
+
+Abaixo, tem-se o código da implementação e uma imagem da execução da aplicação.
+
+[source,cpp]
+
+----
+include::programas/homomorfico.cpp[]
+----
+
+[#img-homomorfico]
+.Imagem original (esquerda) Imagem resultante da aplicação do filtro homomórfico (direita).
+image::fhm2.png[Resultado]
+Imagem original disponível em: <https://unsplash.com/photos/HHyKGVt0_E0>
+
+Valores utilizados na aplicação: gH = 8, gL=6, c=10, d0=15.
+
+== Detecção de bordas com o algoritmo de Canny ==
+Nesta seção será apresentada a aplicação do algoritmo _Canny_ para detecção de bordas.
+
+=== Exercício *_Pointilismo_* ===
+Utilizando o programa *_canny.cpp_* e *_pontilhismo.cpp_* como referência. Foi desenvolvido um algoritmo para gerar o efeito pontilhista em uma imagem fornecida através da chamada do programa. Utilizando o algoritmo de Canny, detectam-se as bordas presente na imagem para aumentar sua a qualidade da representação pointilista, considerando realizar o desenho de circulos menores, quanto maior for o destaque de tais bordas, com os círculos menores com *_6 pixels_* de raio em os maiores com raio de *_16 pixels_*. Os circulos menores são desenhados nas posições indicadas como borda pelo algoritmo de _Canny_.
+
+
+Abaixo, tem-se o código da implementação e uma imagem da execução da aplicação.
+
+[source,cpp]
+
+----
+include::programas/pointilismo.cpp[]
+----
+
+[#img-pointilismo]
+.Imagem resultante do programa de desenho pointilista utilizando os pontos de bordas indicados pelo algoritmo de _Canny_.
+image::imagem_pontilhista_corrigida.jpg[Resultado,640]
+Imagem original disponível em: <https://unsplash.com/photos/V9VDd-2s3aE>
+
+== Quantização vetorial com k-means ==
+
+=== Exercicio *_kmeans_* ===
+
+Com base no programa kmeans.cpp, um programa foi desenvolvido para executar _nRodadas=1_ do algoritmo k-means em uma imagem iniciando os centros de forma aleatória. O programa recebe como parametro de entrada uma imagem e tem como saída um vídeo com 2 frames por segundo, com uma duração total de 10 segundos, portanto, executado *_20 vezes_*, a fim de se verificar a diversidade de figuras produzidas.
+
+O resultado da aplicação do algoritmo pode ser verificado abaixo, bem como o seu código fonte.
+
+[source,cpp]
+
+----
+include::programas/kmeans.cpp[]
+----
+
+
+[#vid-kmeans1YT]
+.Kmeans - Video 1 - 6 clusters
+
+video::2fuIpNRbgGY[youtube, 640,480]
+
+[#vid-kmeans2YT]
+.Kmeans - Video 2 - 8 clusters
+
+video::emw5PxdlJhA[youtube, 640,480]
+
+Através do vídeo resultante do programa, é possivel verificar que os agrupamentos dos centros são escolhidos de forma aleatória, e que esses pontos mudam a cada rodada, produzindo assim imagens diferentes.
+
+== Filtragem de forma com morfologia matemática ==
+Nesta seção será apresentada a resolução desenvolvida para o pré-processamento de imagens provenientes de um display de segmentos de uma aplicação industrial.
+Um sistema de captura de imagens precisa realizar o reconhecimento de carateres de um visor de segmentos para uma aplicação industrial.
+
+=== Exercicio *_Filtros Morfológicos_* ===
+A resolução baseia-se na na agregação dos segmentos que compõem a informação numérica da imagem. Tal solução foi baseada na utilização de filtros morfológicos.
+
+A ordem utilizada para realizar a filtragem foi:
+
+* Erosão (Aumentar o preenchimento no sentido vertical).
+
+* Abertura->Fechamento (Realizar a conexão).
+
+* Dilatação (Remover excesso vertical).
+
+A imagem original pode ser verificada a seguir.
+[#img-morfologia_original]
+.Imagem inicial.
+image::download.png[Resultado]
+
+Através da saída das imagens combinadas do programa, obtem-se a verificação de cada operação morfológica sendo realizada na imagem original do display. A primeira posição da esquerda representa a imagem original, imediatamente a direita e respectivamente temos as demais imagens para as operações de: Erosão, Abertura->Fechamento, Dilatação.
+
+A figura que ilustra esse passo a passo pode ser vista a seguir.
+
+[#img-morfologia_digito3]
+.Todas as operações morfológicas realizadas.
+image::saida_combinada3.png[Resultado]
+
+Foram utilizados os seguintes elementos estruturantes.
+
+[#img-str1]
+.Primeiro elemento estruturamente (imagem ampliada).
+image::str1.png[Resultado,64]
+
+[#img-str2]
+.Segundo elemento estruturamente (imagem ampliada).
+image::str2.png[Resultado,64]
+
+O primeiro elemento estruturante foi utilizado nas duas primeiras operações morfológicas, enquanto que o segundo elemento estruturante foi utilizado apenas na ultima operação de dilatação.
+
+Por fim, o resultado final do pré-processamento obtido com o programa desenvolvido pode ser visualizado na figura a seguir.
+[#img-processado]
+.Resultado do programa ao ser aplicado a imagem completa dos digitos do display de segmentos.
+image::processado.png[Resultado]
+
+Abaixo, tem-se o código fonte do programa desenvolvido.
+
+[source,cpp]
+
+----
+include::programas/morfologia.cpp[]
+----
 
 :!sectnums:

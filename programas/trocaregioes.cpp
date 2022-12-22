@@ -1,5 +1,5 @@
 #include <iostream>
-#include <opencv2\opencv.hpp>
+#include <opencv2/opencv.hpp>
 
 #define CV_LOAD_IMAGE_COLOR IMREAD_COLOR
 

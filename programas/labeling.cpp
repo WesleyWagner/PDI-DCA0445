@@ -1,6 +1,6 @@
 #include <iostream>
 #include <opencv2/opencv.hpp>
-#include <imgproc.hpp>
+#include <opencv2/imgproc.hpp>
 
 typedef unsigned char uchar;
 
