@@ -15,6 +15,46 @@ Os exercícios apresentados a seguir foram desenvolvidos em C++, utilizando a bi
 
 :sectnums:
 
+== Hello, OpenCV *_hello.cpp_* ==
+O ambiente dos códigos e programas desenvolvidas foram baseados no ambiente Linux.
+Para realizar a instalação do _Opencv_ basta abrir o terminal e inserir os seguintes comandos:
+
+[source,bash]
+.Terminal Linux
+----
+sudo apt update && sudo apt upgrade -y && sudo apt install libopencv-dev build-essential
+----
+
+[source,makefile]
+.Makefile
+----
+include::programas/Makefile[]
+----
+
+O ambiente de desenvolvimento poderá ser testado com *_hello.cpp_* , no qual apresenta na tela uma imagem fornecida via linha de comando. Lembrando que o arquivo Makefile deve estar na mesma pasta que o arquivo *_.cpp_* que se deseja compilar, bem como a imagem de teste.
+
+[source,cpp]
+.hello.cpp
+----
+include::programas/hello.cpp[]
+----
+
+Para executar o programa:
+
+[source,bash]
+.Terminal Linux
+----
+make hello
+./hello biel.png
+----
+
+Resultado do programa:
+
+[#img-helloOpencv]
+.Resultado da execução do programa hello.cpp
+image::bien_hello.png[Resultado]
+
+
 == Manipulando pixels em uma imagem ==
 
 === Exercício *_regions.cpp_* ===
