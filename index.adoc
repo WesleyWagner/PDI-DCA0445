@@ -7,6 +7,11 @@
 
 Wesley Wagner Varela Souza <wesley.souza.016@ufrn.edu.br>
 
+== LINKS PARA LISTAS DE EXERCÍCIOS ==
+
+https://drive.google.com/file/d/1H9Z49wqc6RQGrSG1xK6W577cq6HvnTAD/view?usp=sharing[LISTA UNIDADE II]
+https://drive.google.com/file/d/1Br4qgrqBqmFEEJqcJZA65PabgX3CSjZK/view?usp=sharing[LISTA UNIDADE III]
+
 == Introdução ==
 
 Este site destina-se a apresentar as soluções desenvolvidas para os exercícios propostos na disciplina de Processamento Digital de Imagens (PDI), ofertada no Departamento de Engenharia de Computação e Automação da UFRN e ministrado pelo professor Agostinho De Medeiros Brito Junior, cujo o material da disciplina de PDI se encontra disponível em <https://agostinhobritojr.github.io/tutorial/pdi/>.
